@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>94615397-c79b-4429-b061-7cfd9b747b88</OriginalElement>
+  <nodes>
+    <node x="238.0" y="788.0">94615397-c79b-4429-b061-7cfd9b747b88.TABLE:db_elycee.migrations</node>
+    <node x="530.25" y="0.0">94615397-c79b-4429-b061-7cfd9b747b88.TABLE:db_elycee.questions</node>
+    <node x="157.75" y="0.0">94615397-c79b-4429-b061-7cfd9b747b88.TABLE:db_elycee.users</node>
+    <node x="0.0" y="788.0">94615397-c79b-4429-b061-7cfd9b747b88.TABLE:db_elycee.password_resets</node>
+    <node x="0.0" y="235.0">94615397-c79b-4429-b061-7cfd9b747b88.TABLE:db_elycee.posts</node>
+    <node x="648.0" y="279.0">94615397-c79b-4429-b061-7cfd9b747b88.TABLE:db_elycee.choices</node>
+    <node x="354.0" y="268.0">94615397-c79b-4429-b061-7cfd9b747b88.TABLE:db_elycee.scores</node>
+    <node x="20.0" y="536.0">94615397-c79b-4429-b061-7cfd9b747b88.TABLE:db_elycee.comments</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="94615397-c79b-4429-b061-7cfd9b747b88.TABLE:db_elycee.scores" target="94615397-c79b-4429-b061-7cfd9b747b88.TABLE:db_elycee.users">
+      <point x="-68.5" y="-92.5" />
+      <point x="422.5" y="210.0" />
+      <point x="363.25" y="210.0" />
+      <point x="68.5" y="92.5" />
+    </edge>
+    <edge source="94615397-c79b-4429-b061-7cfd9b747b88.TABLE:db_elycee.posts" target="94615397-c79b-4429-b061-7cfd9b747b88.TABLE:db_elycee.users">
+      <point x="0.0" y="-125.5" />
+      <point x="167.0" y="210.0" />
+      <point x="226.25" y="210.0" />
+      <point x="-68.5" y="92.5" />
+    </edge>
+    <edge source="94615397-c79b-4429-b061-7cfd9b747b88.TABLE:db_elycee.scores" target="94615397-c79b-4429-b061-7cfd9b747b88.TABLE:db_elycee.questions">
+      <point x="68.5" y="-92.5" />
+      <point x="559.5" y="210.0" />
+      <point x="598.75" y="210.0" />
+      <point x="-68.5" y="92.5" />
+    </edge>
+    <edge source="94615397-c79b-4429-b061-7cfd9b747b88.TABLE:db_elycee.choices" target="94615397-c79b-4429-b061-7cfd9b747b88.TABLE:db_elycee.questions">
+      <point x="0.0" y="-81.5" />
+      <point x="775.0" y="210.0" />
+      <point x="735.75" y="210.0" />
+      <point x="68.5" y="92.5" />
+    </edge>
+    <edge source="94615397-c79b-4429-b061-7cfd9b747b88.TABLE:db_elycee.comments" target="94615397-c79b-4429-b061-7cfd9b747b88.TABLE:db_elycee.posts">
+      <point x="0.0" y="-103.5" />
+      <point x="0.0" y="125.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.6247288503253796" x="451.0" y="442.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Key columns</Category>
+    <Category>Columns</Category>
+  </Categories>
+</Diagram>
+
