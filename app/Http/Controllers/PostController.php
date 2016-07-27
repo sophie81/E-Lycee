@@ -34,7 +34,10 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        $comments = Comment::lists('title','id');
+        $userId = Auth::user()->id;
+
+        return view('admin.post.create', compact('comments','userId'));
     }
 
     /**

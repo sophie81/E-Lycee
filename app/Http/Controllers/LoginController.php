@@ -26,7 +26,7 @@ class LoginController extends Controller
             if(Auth::attempt($credentials, $remember)){
 
                 if (Auth::user()->role == 'teacher'){
-                    return redirect('teacher')->with(['message' => 'Vous êtes maintenant connecté !']);
+                    return redirect('teacher')->with(['message', 'Vous êtes maintenant connecté !']);
                 }else{
                     return redirect('student')->with(['message' => 'Vous êtes maintenant connecté !']);
                 }
@@ -42,6 +42,6 @@ class LoginController extends Controller
     public function logout(){
         Auth::logout();
 
-        return redirect('/');
+        return redirect('/')->with(['success','Vous êtes déconnecté !']);
     }
 }
