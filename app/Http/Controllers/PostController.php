@@ -78,7 +78,10 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        $userId = Auth::user()->id;
+
+        return view('admin.post.edit', compact('post','userId'));
     }
 
     /**
@@ -90,7 +93,10 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $post = Post::find($id);
+        $post->update($request->all());
+
+        return redirect('post')->with(['message'=>'Mise à jour de l\'article avec succès']);
     }
 
     /**
@@ -102,5 +108,17 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function changeStatus($id)
+    {
+        $post = Post::findOrFail($id);
+        $title = $post->title;
+
+        $status = $post->status=='published'? 'unpublished' : 'published';
+        $post->status = $status;
+        $post->save();
+
+        return redirect('post')->with(['message'=>'Le status a été modifié.']);
     }
 }

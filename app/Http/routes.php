@@ -27,6 +27,6 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('teacher', 'AdminController@teacher');
         Route::get('student', 'AdminController@student');
         Route::resource('post', 'PostController');
-        //Route::get('changeStatus/{id}', 'PostController@changeStatus');
+        Route::get('changeStatus/{id}', 'PostController@changeStatus');
     });
 });
