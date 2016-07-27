@@ -1,2 +1,81 @@
-// @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+body {
+  font-family: 'Marvel', sans-serif;
+}
+
+h1 {
+  display: inline;
+  vertical-align: middle;
+}
+
+ul {
+  margin-bottom: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.top-nav {
+  background-color: #a9425a;
+  height: 50px;
+  line-height: 50px;
+
+  h1 {
+    color: #FFF;
+  }
+
+  a {
+    color: #FFF;
+    padding: 0 10px;
+  }
+
+  li {
+    display: inline-block;
+  }
+
+  img {
+    margin: 0 10px;
+    width: 30px;
+  }
+
+  .fb-like {
+    width: 60px;
+  }
+}
+
+.bottom-nav {
+  background-color: #eee;
+  height: 50px;
+  line-height: 50px;
+
+  li {
+    display: inline-block;
+
+    a {
+      font-size: 20px;
+      text-transform: uppercase;
+      color: #000;
+      padding-right: 10px;
+    }
+  }
+
+  .search-bar {
+    height: 30px;
+  }
+
+  .loupe {
+    width: 20px;
+  }
+
+  form {
+    display: inline-block;
+
+    input[type="submit"] {
+      height: 30px;
+      line-height: 30px;
+      border: 0;
+    }
+  }
+}

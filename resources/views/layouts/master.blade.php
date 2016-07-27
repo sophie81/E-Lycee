@@ -5,12 +5,11 @@
     <title>
         @yield('title', 'E-lycée')
     </title>
-
-
+    <link rel="stylesheet" href="{{url('css/app.css')}}" media="all">
+    <link href='https://fonts.googleapis.com/css?family=Marvel' rel='stylesheet' type='text/css'>
 </head>
 <body class="mw960p mauto">
 <header>
-    <h1>E-lycée</h1>
     <nav>
         @include('partials.nav')
     </nav>
