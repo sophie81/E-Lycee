@@ -9,10 +9,15 @@ use App\Post;
 
 class AdminController extends Controller
 {
+    private $paginate = 10;
+
     public function teacher(){
-        $title = 'Admin Teacher';
-        $posts = Post::with('category', 'user', 'tags', 'picture')
-            ->opened();
+        $title = 'Post';
+        $posts = Post::with('comments', 'user')
+            ->orderBy('date', 'desc')
+            ->take(3)
+            ->get()
+        ;
 
         return view('admin.teacher', compact('posts', 'title'));
     }
