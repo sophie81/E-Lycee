@@ -1,0 +1,55 @@
+@extends('layouts.admin')
+
+@section('content')
+    @if(Session::has('message'))
+        <p class="msg mb20">{{Session::get('message')}}</p>
+    @endif
+    {{ $posts->links() }}
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Titre</th>
+            <th>Auteur</th>
+            <th>Commentaire</th>
+            <th>Status</th>
+            <th>Action (suppression)</th>
+        </tr>
+        </thead>
+        <div id="confirm">
+            <p>Confirmez vous la suppression de la resource <span></span> ?</p>
+        </div>
+        @forelse($posts as $post)
+            <tr>
+                <td>
+                    {{$post->title}}
+                </td>
+                <td>
+                    @if($post->user)
+                        {{$post->user->username}}
+                    @else
+                        pas d'auteur
+                    @endif
+                </td>
+                <td>
+
+                </td>
+                <td>
+                    <a href="{{url("changeStatus", $post->id)}}" class="btn btn-valid">{{$post->status}}</a>
+                </td>
+                <td>
+                    <a href="{{url('post',[$post->id, 'edit'])}}" class="btn btn-update mb10">Modifier</a>
+                    <form class="destroy" method="POST" action="{{url('post', $post->id)}}">
+                        {{ method_field('DELETE') }}
+                        {{ csrf_field() }}
+                        <input type="hidden" name="title_h" value="{{$post->title}}">
+                        <input class="btn btn-closed" name="delete" type="submit" value="Supprimer">
+                    </form>
+                </td>
+
+            </tr>
+        @empty
+            <p>aucun post</p>
+        @endforelse
+    </table>
+    {!! $posts->links() !!}
+@endsection

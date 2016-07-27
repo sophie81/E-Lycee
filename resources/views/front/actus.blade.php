@@ -17,8 +17,3 @@
     @endforelse
     {!! $posts->links() !!}
 @endsection
-
-@section('footer')
-    @parent
-    <p>2016 - RIVIERE Sophie</p>
-@endsection

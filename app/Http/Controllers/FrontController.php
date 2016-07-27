@@ -16,22 +16,14 @@ class FrontController extends Controller
 {
     private $paginate = 5;
 
-    public function index(Request $request){
+    public function index(){
         $title = 'Home';
 
-        $key ='home'.$request->get('page');
-
-        if(Cache::has($key)){
-            $posts = Cache::get($key);
-        } else {
-            $posts = Post::with('user', 'comments')
-                ->opened()
-                ->paginate($this->paginate);
-
-            $expire = Carbon::now()->addMinute();
-
-            Cache::put($key, $posts, $expire);
-        }
+        $posts = Post::with('user', 'comments')
+            ->orderBy('date', 'desc')
+            ->take(3)
+            ->opened()
+            ->get();
 
         return view('front.index', compact('posts', 'title'));
     }
@@ -52,14 +44,25 @@ class FrontController extends Controller
 
         return view('front.showActu', compact('post', 'title'));
     }
-/*
-    public function user(){
-        $title = 'Auteurs';
-        $users = User::all();
 
-        return view('front.user', compact('users', 'title'));
+    public function lycee(){
+        $title = 'Lycée';
+
+        return view('front.lycee', compact('title'));
     }
 
+    public function contact(){
+        $title = 'Contact';
+
+        return view('front.contact', compact('title'));
+    }
+
+    public function mentions(){
+        $title = 'Mentions légales';
+
+        return view('front.mentions', compact('title'));
+    }
+/*
     public function showUser($id){
         $title = 'Auteur';
         $user = User::findorFail($id);

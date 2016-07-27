@@ -21,4 +21,12 @@ Route::get('mentions', 'FrontController@mentions');
 
 Route::group(['middleware' => ['web']], function () {
     Route::any('login', 'LoginController@login');
+    Route::get('logout', 'LoginController@logout');
+
+    Route::group(['middleware' => ['auth']], function () {
+        Route::get('teacher', 'AdminController@teacher');
+        Route::get('student', 'AdminController@student');
+        Route::resource('post', 'PostController');
+        //Route::get('changeStatus/{id}', 'PostController@changeStatus');
+    });
 });

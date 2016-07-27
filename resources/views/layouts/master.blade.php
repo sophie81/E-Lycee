@@ -30,7 +30,9 @@
 </div>
 <footer>
     @section('footer')
-        <p> Sophie RIVIERE - 2016</p>
+        <nav>
+            @include('partials.footerNav')
+        </nav>
 </footer>
 <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
 </body>

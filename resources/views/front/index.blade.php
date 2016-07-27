@@ -3,7 +3,6 @@
 @section('title', $title)
 
 @section('content')
-    {{ $posts->links() }}
     @forelse($posts as $post)
         <h3><a href="{{url('actualite',[$post->id])}}">{{$post->title}}</a></h3>
         <div class="txtleft">
@@ -15,10 +14,4 @@
     @empty
         <p>Pas d'article </p>
     @endforelse
-    {!! $posts->links() !!}
-@endsection
-
-@section('footer')
-    @parent
-    <p>2016 - RIVIERE Sophie</p>
 @endsection
