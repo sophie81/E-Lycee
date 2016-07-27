@@ -107,7 +107,12 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        $title = $post->title;
+
+        $post->delete();
+
+        return redirect('post')->with(['message'=>sprintf('L\'article %s a été supprimé avec succès.', $title)]);
     }
 
     public function changeStatus($id)
