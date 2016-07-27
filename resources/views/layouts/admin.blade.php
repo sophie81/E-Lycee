@@ -5,9 +5,8 @@
     <title>
         @yield('title', 'BlogPHP')
     </title>
-    <link rel="stylesheet" href="{{url('assets/css/knacss.min.css')}}" media="all">
-    <link rel="stylesheet" href="{{url('assets/css/app.min.css')}}" media="all">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="{{url('css/app.css')}}" media="all">
+    <link href='https://fonts.googleapis.com/css?family=Marvel' rel='stylesheet' type='text/css'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 </head>
@@ -29,6 +28,6 @@
 </footer>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-<script src="{{url('assets/js/app.min.js')}}"></script>
+<script src="{{url('js/app.min.js')}}"></script>
 </body>
 </html>
