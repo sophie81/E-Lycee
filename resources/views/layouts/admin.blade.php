@@ -14,7 +14,7 @@
 <header>
     <h1>BlogPHP</h1>
     <nav>
-
+        @include('partials.adminNav')
     </nav>
 </header>
 <div class="main">
