@@ -33,12 +33,14 @@
             <legend>Ajouter un commentaire</legend>
             <div>
                 <label for="nom">Pseudo :</label>
-                <input type="text" id="nom" />
+                <input type="text" name="title" id="nom" />
             </div>
             <div>
                 <label for="message">Message :</label>
-                <textarea id="message"></textarea>
+                <textarea id="message" name="content"></textarea>
             </div>
+            <input type="hidden" name="date" value="{{date('Y-m-d H:i:s')}}">
+            <input type="hidden" name="post_id" value="{{$post->id}}">
 
             <div class="button">
                 <button type="submit">Envoyer</button>

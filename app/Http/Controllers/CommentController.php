@@ -9,25 +9,6 @@ use App\Comment;
 
 class CommentController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -37,9 +18,9 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        $comment = Comment::create($request->all());
-
-        return redirect('front.showActu')->with(['message' => sprintf('Votre article a bien été enregistré !')]);
+        Comment::create($request->all());
+        //dd($comment);
+        return back()->with(['message' => sprintf('Votre article a bien été enregistré !')]);
     }
 
     /**

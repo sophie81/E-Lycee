@@ -17,6 +17,8 @@ Route::get('actualite/{id}', 'FrontController@showActu');
 Route::get('lycee', 'FrontController@lycee');
 Route::get('contact', 'FrontController@contact');
 Route::get('mentions', 'FrontController@mentions');
+Route::resource('comment', 'CommentController');
+
 
 
 Route::group(['middleware' => ['web']], function () {
@@ -27,7 +29,6 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('teacher', 'AdminController@teacher');
         Route::get('student', 'AdminController@student');
         Route::resource('post', 'PostController');
-        Route::resource('comment', 'CommentController');
         Route::get('changeStatus/{id}', 'PostController@changeStatus');
     });
 });
