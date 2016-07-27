@@ -6,6 +6,7 @@
     {{ $posts->links() }}
     @forelse($posts as $post)
         <h3><a href="{{url('actualite',[$post->id])}}">{{$post->title}}</a></h3>
+        <img src="{{$post->url_thumbnail}}" width="200px">
         <div class="txtleft">
             <p>{{$post->content}}</p>
             @if($post->date)
