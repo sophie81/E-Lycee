@@ -11,6 +11,11 @@
             @if($post->date)
                 <p><b>Plublié le :</b> {{$post->date->format('d/m/Y')}}</p>
             @endif
+            @if($post->user)
+                <p>Ecrit par : {{$post->user->username}}</p>
+            @else
+                pas d'auteur
+            @endif
             <a href="{{url('actualite',[$post->id])}}">Lire la suite...</a>
         </div>
     @empty

@@ -31,8 +31,8 @@
             <input type="date" name="date"></p>
         </div>
         <div class="photo">
-            <label>Entrer un nom pour votre image:</label><input type="text" name="name"><br>
-            <input type="file" name="picture">
+            <label>Entrer l'url de votre image:</label><br>
+            <input type="text" name="url_thumbnail">
         </div>
         <div class="container-btn">
             <br><input type="submit" value="Créer" class="btn-validate">
