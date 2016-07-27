@@ -1,11 +1,7 @@
 /vendor
 /node_modules
 /public/storage
-<<<<<<< HEAD
 /.idea/
-=======
-.idea/
->>>>>>> 21c74530bc70e88a7e2e45cdab43c1f54cc90d95
 Homestead.yaml
 Homestead.json
 .env
