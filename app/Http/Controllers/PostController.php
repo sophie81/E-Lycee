@@ -48,7 +48,15 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $post = Post::create($request->all());
+
+        /*$im = $request->file('picture');
+
+        // refactoring voir plus bas la méthode private upload
+        if (!empty($im))
+            $this->upload($im, $request->input('name'), $post->id);*/
+
+        return redirect('post')->with(['message'=>'Article crée avec un succès']);
     }
 
     /**
