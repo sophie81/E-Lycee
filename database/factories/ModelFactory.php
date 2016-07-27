@@ -12,12 +12,13 @@
 */
 
 $factory->define(App\Post::class, function (Faker\Generator $faker) {
+    $id = rand(1,9);
     return [
         'title' => $faker->sentence($nbWords = 4, $variableNbWords = true),
         'abstract' => $faker->paragraph(1),
         'content' => $faker->paragraph(3),
         'user_id' => '1',
-        'url_thumbnail' => $faker->imageUrl($width=640, $height=480, 'technics'),
+        'url_thumbnail' => "http://lorempicsum.com/up/370/235/$id",
         'date' => $faker->dateTime($max = 'now'),
     ];
 });
