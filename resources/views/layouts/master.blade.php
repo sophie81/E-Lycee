@@ -15,8 +15,10 @@
     </nav>
 </header>
 <div class="main grid-2">
-    <div class="content">
-        @yield('content')
+    <div class="container">
+        <div class="row">
+            @yield('content')
+        </div>
     </div>
 
     <div class="sidebar">

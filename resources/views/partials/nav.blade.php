@@ -1,14 +1,14 @@
 <div class="container-fluid">
     <div class="row">
         <ul class="top-nav">
-            <li class="col-md-6">
+            <li class="col-xs-6 left-part">
                 <h1>E-lycée</h1>
                 <img src="{{url('images/fb-like.jpg')}}" alt="Facebook" class="fb-like">
             </li>
-            <li class="col-md-6">
-                <a href="{{url('login')}}">Connexion</a>
-                <img src="{{url('images/logo-fb.png')}}" alt="Facebook">
-                <img src="{{url('images/logo-twitter.png')}}" alt="Twitter">
+            <li class="col-xs-6 right-nav">
+                <a href="{{url('login')}}" class="connect">Connexion</a>
+                <a href="https://facebook.com/" target="_blank" class="fb logos"></a>
+                <a href="https://twitter.com/" target="_blank" class="twitter logos"></a>
             </li>
         </ul>
     </div>

@@ -15,7 +15,7 @@ use Cache;
 
 class FrontController extends Controller
 {
-    private $paginate = 5;
+    private $paginate = 6;
 
     public function index(){
         $title = 'Home';
