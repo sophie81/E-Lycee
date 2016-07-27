@@ -4,7 +4,13 @@
     @if(Session::has('message'))
         <p class="msg mb20">{{Session::get('message')}}</p>
     @endif
-    {{ $posts->links() }}
+    <nav>
+        <li><a href="{{url('teacher')}}">Dashboard</a></li>
+        <li><a href="{{url('post')}}">Mes articles</a></li>
+    </nav>
+    <nav>
+        <li><a href="{{url('post','edit')}}">Mes articles</a></li>
+    </nav>
     <table class="table">
         <thead>
         <tr>

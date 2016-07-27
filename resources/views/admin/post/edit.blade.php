@@ -5,6 +5,10 @@
         <p class="msg">{{Session::get('message')}}</p>
     @endif
     <h1 class="h1-form">Modification d'article</h1>
+    <nav>
+        <li><a href="{{url('teacher')}}">Dashboard</a></li>
+        <li><a href="{{url('post')}}">Mes articles</a></li>
+    </nav>
     <form method="POST" action="{{url('post', $post->id)}}" enctype="multipart/form-data" class="form-create">
         {{csrf_field()}}
         <input type="hidden" name="_method" value="PATCH">

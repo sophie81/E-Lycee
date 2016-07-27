@@ -4,6 +4,10 @@
         <p class="msg">{{Session::get('message')}}</p>
     @endif
     <h1 class="h1-form">Créer votre article !</h1>
+    <nav>
+        <li><a href="{{url('teacher')}}">Dashboard</a></li>
+        <li><a href="{{url('post')}}">Mes articles</a></li>
+    </nav>
     <form method="POST" action="{{url('post')}}" enctype="multipart/form-data" class="form-create">
         {{csrf_field()}}
         <input type="hidden" name="user_id" value="{{$userId}}">

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>
-        @yield('title', 'BlogPHP')
+        @yield('title', 'E-Lycée Administration')
     </title>
     <link rel="stylesheet" href="{{url('css/app.css')}}" media="all">
     <link href='https://fonts.googleapis.com/css?family=Marvel' rel='stylesheet' type='text/css'>
@@ -12,7 +12,7 @@
 </head>
 <body class="mw960p mauto">
 <header>
-    <h1>BlogPHP</h1>
+    <h1>E-Lycée Administration</h1>
     <nav>
         @include('partials.adminNav')
     </nav>
