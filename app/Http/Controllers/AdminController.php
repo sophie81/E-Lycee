@@ -11,8 +11,7 @@ class AdminController extends Controller
 {
     public function teacher(){
         $title = 'Admin Teacher';
-        $posts = Post::with('category', 'user', 'tags', 'picture')
-            ->opened();
+        $posts = Post::with('user');
 
         return view('admin.teacher', compact('posts', 'title'));
     }
