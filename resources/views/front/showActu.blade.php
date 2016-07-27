@@ -9,13 +9,41 @@
             <div class="txtleft">
                 <p>{{$post->content}}</p>
                 @if($post->user)
-                    <p><b>Auteur :</b> <a href="{{url('user',[$post->user->id])}}">{{$post->user->name}}</a></p>
+                    <p><b>Auteur :</b> <a href="{{url('user',[$post->user->id])}}">{{$post->user->username}}</a></p>
                 @endif
-                @if($post->published_at)
-                    <p><b>Plublié le :</b> {{$post->published_at->format('d/m/Y')}}</p>
+                @if($post->date)
+                    <p><b>Plublié le :</b> {{$post->date->format('d/m/Y')}}</p>
                 @endif
             </div>
         </article>
+        <h3>Commentaires</h3>
+        @forelse($post->comments as $comment)
+            <h4>{{$comment->title}}</h4>
+            <div class="txtleft">
+                <p>{{$comment->content}}</p>
+                @if($comment->date)
+                    <p><b>Plublié le :</b> {{$comment->date->format('d/m/Y')}}</p>
+                @endif
+            </div>
+        @empty
+            <p>0 commentaire </p>
+        @endforelse
+        <form action="{{url('comment')}}" method="POST">
+            {{csrf_field()}}
+            <legend>Ajouter un commentaire</legend>
+            <div>
+                <label for="nom">Pseudo :</label>
+                <input type="text" id="nom" />
+            </div>
+            <div>
+                <label for="message">Message :</label>
+                <textarea id="message"></textarea>
+            </div>
+
+            <div class="button">
+                <button type="submit">Envoyer</button>
+            </div>
+        </form>
     @else
         <p>Pas d'article</p>
     @endif
