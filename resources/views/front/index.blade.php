@@ -42,5 +42,16 @@
     </div>
     <div class="col-md-3 home-sidebar">
         <h3>A lire aussi</h3>
+        @forelse($other as $otherPost)
+            <div>
+                <h3><a href="{{url('actualite',[$otherPost->id])}}">{{$otherPost->title}}</a></h3>
+                <p>{{$otherPost->abstract}}</p>
+                @if($otherPost->date)
+                    <p><b>Plublié le :</b> {{$otherPost->date->format('d/m/Y')}}</p>
+                @endif
+            </div>
+        @empty
+            <p>Pas d'article </p>
+        @endforelse
     </div>
 @endsection

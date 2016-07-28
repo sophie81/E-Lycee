@@ -27,7 +27,13 @@ class FrontController extends Controller
             ->opened()
             ->get();
 
-        return view('front.index', compact('posts', 'title'));
+        $other = Post::with('user', 'comments')
+            ->orderBy('date', 'desc')
+            ->take(5)
+            ->skip(3)
+            ->get();
+
+        return view('front.index', compact('posts', 'other', 'title'));
     }
 
     public function actus(){
