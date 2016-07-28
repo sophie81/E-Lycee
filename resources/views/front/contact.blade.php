@@ -3,23 +3,13 @@
 @section('title', $title)
 
 @section('content')
-    <form action="/" method="post">
-        <div>
-            <label for="nom">Nom :</label>
-            <input type="text" id="nom" />
-        </div>
-        <div>
-            <label for="courriel">E-mail :</label>
-            <input type="email" id="courriel" />
-        </div>
-        <div>
-            <label for="message">Message :</label>
-            <textarea id="message"></textarea>
-        </div>
-
-        <div class="button">
-            <button type="submit">Envoyer</button>
-        </div>
-    </form>
-
+    <div class="col-xs-12 page-contact">
+        <h2>Nous contacter</h2>
+        <form action="/" method="post">
+            <input type="text" id="nom" placeholder="Nom"/>
+            <input type="email" id="courriel" placeholder="E-mail"/>
+            <textarea id="message" placeholder="Message"></textarea>
+            <div class="button"><button type="submit">Envoyer</button></div>
+        </form>
+    </div>
 @endsection

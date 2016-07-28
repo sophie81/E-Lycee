@@ -8,25 +8,15 @@
     <link rel="stylesheet" href="{{url('css/app.css')}}" media="all">
     <link href='https://fonts.googleapis.com/css?family=Marvel' rel='stylesheet' type='text/css'>
 </head>
-<body class="mw960p mauto">
+<body>
 <header>
     <nav>
         @include('partials.nav')
     </nav>
 </header>
-<div class="main grid-2">
-    <div class="container">
-        <div class="row">
-            @yield('content')
-        </div>
-    </div>
-
-    <div class="sidebar">
-        <div class="fixed">
-            @section('sidebar')
-
-            @show
-        </div>
+<div class="container">
+    <div class="row">
+        @yield('content')
     </div>
 </div>
 <footer>

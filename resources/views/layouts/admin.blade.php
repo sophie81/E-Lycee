@@ -10,15 +10,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 </head>
-<body class="mw960p mauto">
+<body>
 <header>
     <h1>E-Lycée Administration</h1>
     <nav>
         @include('partials.adminNav')
     </nav>
 </header>
-<div class="main">
-    <div class="content">
+<div class="container">
+    <div class="row">
         @yield('content')
     </div>
 </div>

@@ -360,16 +360,16 @@ ul.pagination li a {
       width: 350px;
       height: 150px;
     }
-
-    .button button[type="submit"] {
-      background-color: rgba(70, 201, 214, 0.59);
-      border: 0;
-      border-radius: 5px;
-      padding: 5px 10px;
-      text-transform: uppercase;
-      color: #fff;
-    }
   }
+}
+
+.button button[type="submit"] {
+  background-color: rgba(70, 201, 214, 0.59);
+  border: 0;
+  border-radius: 5px;
+  padding: 5px 10px;
+  text-transform: uppercase;
+  color: #fff;
 }
 
 .form {
@@ -398,6 +398,25 @@ ul.pagination li a {
     display: block;
     background-repeat: no-repeat;
     background-position: center;
+}
+
+.page-contact {
+  text-align: center;
+  margin: 50px 0;
+
+  h2 { margin-top: 0; }
+
+  form {
+    input,
+    textarea {
+      display: block;
+      margin: 30px auto;
+      width: 250px;
+      border: 1px solid #9a9a9a;
+    }
+
+    textarea { height: 150px; }
+  }
 }
 
 footer {
