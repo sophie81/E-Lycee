@@ -34,6 +34,7 @@ class FrontController extends Controller
         $title = 'Actualités';
 
         $posts = Post::with('user', 'comments')
+            ->orderBy('date', 'desc')
             ->opened()
             ->paginate($this->paginate);
 
