@@ -5743,6 +5743,13 @@ ul {
 li {
   list-style: none; }
 
+table {
+  margin-top: 50px; }
+
+.h1-form {
+  display: block;
+  text-align: center; }
+
 .title {
   text-align: center;
   margin-bottom: 0;
@@ -5804,6 +5811,8 @@ ul.pagination li a {
     width: 60px; }
   .top-nav .right-nav {
     text-align: right; }
+    .top-nav .right-nav p {
+      display: inline-block; }
     .top-nav .right-nav .connect {
       transition: ease-in-out 0.4s; }
     .top-nav .right-nav .logos {
@@ -5849,6 +5858,16 @@ ul.pagination li a {
       line-height: 30px;
       border: 0;
       background-color: transparent; }
+
+.bottom-nav-admin {
+  padding-top: 10px;
+  text-align: center; }
+  .bottom-nav-admin li {
+    display: inline-block; }
+    .bottom-nav-admin li a {
+      color: #000;
+      font-size: 20px;
+      text-transform: uppercase; }
 
 .post {
   margin: 50px 0; }
@@ -6040,13 +6059,44 @@ footer nav {
       footer nav ul li:last-child a {
         border-right: 0; }
 
+.list-post {
+  margin-top: 50px; }
+  .list-post .panel-heading {
+    padding: 0;
+    text-align: center;
+    text-transform: uppercase; }
+    .list-post .panel-heading a {
+      color: #000; }
+  .list-post .panel-title {
+    padding: 10px 15px; }
+  .list-post .list {
+    padding: 0 10px; }
+    .list-post .list a {
+      display: block;
+      text-align: center;
+      color: #000; }
+    .list-post .list h3 {
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 10px;
+      margin-top: 10px;
+      font-size: 20px; }
+      .list-post .list h3 a {
+        color: #a9425a; }
+    .list-post .list .see-more {
+      margin-bottom: 10px; }
+
+.content-form {
+  text-align: center; }
+
 @media screen and (min-width: 768px) {
-  .bottom-nav li a {
+  .bottom-nav li a,
+  .bottom-nav-admin li a {
     font-size: 20px;
     margin-right: 50px;
     position: relative;
     padding-bottom: 0 !important; }
-    .bottom-nav li a:before {
+    .bottom-nav li a:before,
+    .bottom-nav-admin li a:before {
       content: "";
       position: absolute;
       width: 100%;
@@ -6057,10 +6107,12 @@ footer nav {
       visibility: hidden;
       transform: scaleX(0);
       transition: all 0.3s ease-in-out 0s; }
-    .bottom-nav li a:hover {
+    .bottom-nav li a:hover,
+    .bottom-nav-admin li a:hover {
       background-color: transparent;
       transition: all 0.3s ease-in-out 0s; }
-    .bottom-nav li a:hover:before {
+    .bottom-nav li a:hover:before,
+    .bottom-nav-admin li a:hover:before {
       visibility: visible;
       transform: scaleX(1); }
   .right-nav .connect:hover {

@@ -8,7 +8,9 @@
         @include('partials.teacherNav')
     </nav>
     <nav>
-        <li><a href="{{url('post','create')}}">Créer un article</a></li>
+        <ul class="bottom-nav-admin">
+            <li><a href="{{url('post','create')}}">Créer un article</a></li>
+        </ul>
     </nav>
     <table class="table">
         <thead>
@@ -59,5 +61,9 @@
             <p>aucun post</p>
         @endforelse
     </table>
-    {!! $posts->links() !!}
+    <div class="row content-pagination">
+        <div class="col-xs-12">
+            {!! $posts->links() !!}
+        </div>
+    </div>
 @endsection
