@@ -23,9 +23,9 @@
             </li>
             <li class="col-md-6">
                 <img src="{{url('images/loupe.png')}}" alt="Loupe" class="loupe">
-                <form action="/search" method="get">
+                <form method="get" role="search">
                     <input type="text" id="search-bar" name="search-bar" class="search-bar">
-                    <input type="submit" value="Ok">
+                    <input type="submit">
                 </form>
             </li>
         </ul>

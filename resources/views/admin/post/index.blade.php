@@ -2,7 +2,7 @@
 
 @section('content')
     @if(Session::has('message'))
-        <p class="msg mb20">{{Session::get('message')}}</p>
+        <p class="msg">{{Session::get('message')}}</p>
     @endif
     <nav>
         <li><a href="{{url('teacher')}}">Dashboard</a></li>

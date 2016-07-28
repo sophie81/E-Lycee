@@ -56,7 +56,7 @@ class PostController extends Controller
         if (!empty($im))
             $this->upload($im, $request->input('name'), $post->id);*/
 
-        return redirect('post')->with(['message'=>'Article crée avec un succès']);
+        return redirect('post')->with('message', 'Article crée avec un succès');
     }
 
     /**
