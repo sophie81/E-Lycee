@@ -31,7 +31,7 @@ class LoginController extends Controller
                     return redirect('student')->with(['message' => 'Vous êtes maintenant connecté !']);
                 }
             }else{
-                return back()->withInput($request->only('username', 'remember'))->with(['message' => 'Erreur lors de l\'authentification, veuillez vérifier votre nom ou votre mot de passe !']);
+                return back()->withInput($request->only('username', 'password'))->with(['message' => 'Erreur lors de l\'authentification, veuillez vérifier votre nom ou votre mot de passe !']);
             }
         }else{
             return view('auth.login');
