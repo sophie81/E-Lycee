@@ -6,7 +6,11 @@
     @forelse($posts as $post)
         <div class="col-md-4 col-sm-6 col-xs-12 actu-post">
             <h3><a href="{{url('actualite',[$post->id])}}">{{$post->title}}</a></h3>
-            <a href="{{url('actualite',[$post->id])}}" class="link-post" style="background-image:url({{$post->url_thumbnail}});">
+            @if($post->url_thumbnail)
+                <a href="{{url('actualite',[$post->id])}}" class="link-post" style="background-image:url({{$post->url_thumbnail}});">
+            @else
+                <a href="{{url('actualite',[$post->id])}}" class="link-post" style="background-image:url({{'images/fb-like.jpg'}});">
+            @endif
             <div class="txt-description">
                 <p>{{$post->content}}</p>
                 @if($post->date)
