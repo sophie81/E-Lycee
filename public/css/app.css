@@ -5751,6 +5751,38 @@ li {
 a:hover, a:focus {
   text-decoration: none; }
 
+.error-msg {
+  margin-top: 20px;
+  background-color: rgba(215, 44, 44, 0.8);
+  border-radius: 5px;
+  padding: 10px 0;
+  color: #fff;
+  font-size: 16px; }
+
+ul.pagination li span,
+ul.pagination li a {
+  border-radius: 30px;
+  margin: 0 5px;
+  width: 30px;
+  height: 30px;
+  line-height: 15px;
+  color: #000; }
+
+.pagination > .active > a,
+.pagination > .active > a:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span,
+.pagination > .active > span:hover,
+.pagination > .active > span:focus {
+  background-color: #a9425a;
+  border-color: #a9425a; }
+
+.pagination > li:first-child > a,
+.pagination > li:first-child > span,
+.pagination > li:last-child > a,
+.pagination > li:last-child > span {
+  border-radius: 30px; }
+
 .top-nav {
   background-color: #a9425a;
   height: 51px;

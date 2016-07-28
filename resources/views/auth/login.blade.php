@@ -3,7 +3,7 @@
 @section('content')
     <div class="col-sm-6 col-sm-offset-3 form">
         @if(Session::has('message'))
-            <p>{{Session::get('message')}}</p>
+            <p class="error-msg">{{Session::get('message')}}</p>
         @endif
         <h2>Connectez-vous</h2>
         <form method="POST" action="{{url('login')}}" class="login">
