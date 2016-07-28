@@ -213,6 +213,24 @@ a:hover, a:focus {
   }
 }
 
+.actu-post {
+  margin-top: 25px;
+
+  h3 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 22px;
+
+    a {
+      color: #000;
+    }
+  }
+}
+
+.content-pagination {
+  text-align: center;
+}
+
 .form {
   text-align: center;
 
@@ -231,6 +249,14 @@ a:hover, a:focus {
   .btn-valid {
     margin-bottom: 50px;
   }
+}
+
+.link-post {
+    background-size: cover;
+    height: 235px;
+    display: block;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 footer {
@@ -333,6 +359,25 @@ footer {
           width: 120px;
         }
       }
+    }
+  }
+
+  .actu-post {
+    .txt-description {
+      color: #000;
+      height: 100%;
+      opacity: 0;
+      text-align: center;
+      border: 10px solid transparent;
+      @include transition(all 0.4s);
+    }
+
+    .link-post:hover .txt-description {
+      display: block;
+      opacity: 1;
+      background-color: rgba(255,255,255, 0.6);
+      border: 10px solid #a9425a;
+      @include transition(all 0.4s);
     }
   }
 }

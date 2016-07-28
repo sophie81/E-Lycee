@@ -5873,6 +5873,18 @@ a:hover, a:focus {
       text-decoration: none;
       color: #000; }
 
+.actu-post {
+  margin-top: 25px; }
+  .actu-post h3 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 22px; }
+    .actu-post h3 a {
+      color: #000; }
+
+.content-pagination {
+  text-align: center; }
+
 .form {
   text-align: center; }
   .form label {
@@ -5885,6 +5897,13 @@ a:hover, a:focus {
     margin: 30px 0; }
   .form .btn-valid {
     margin-bottom: 50px; }
+
+.link-post {
+  background-size: cover;
+  height: 235px;
+  display: block;
+  background-repeat: no-repeat;
+  background-position: center; }
 
 footer nav {
   background-color: #a9425a;
@@ -5940,7 +5959,20 @@ footer nav {
     .post .description .read-more:hover {
       text-decoration: none;
       transition: all 0.2s;
-      width: 120px; } }
+      width: 120px; }
+  .actu-post .txt-description {
+    color: #000;
+    height: 100%;
+    opacity: 0;
+    text-align: center;
+    border: 10px solid transparent;
+    transition: all 0.4s; }
+  .actu-post .link-post:hover .txt-description {
+    display: block;
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.6);
+    border: 10px solid #a9425a;
+    transition: all 0.4s; } }
 
 @media screen and (min-width: 992px) {
   .top-nav h1 {

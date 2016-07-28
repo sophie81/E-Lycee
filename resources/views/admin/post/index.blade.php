@@ -9,7 +9,7 @@
         <li><a href="{{url('post')}}">Mes articles</a></li>
     </nav>
     <nav>
-        <li><a href="{{url('post','edit')}}">Mes articles</a></li>
+        <li><a href="{{url('post','create')}}">Créer un article</a></li>
     </nav>
     <table class="table">
         <thead>
