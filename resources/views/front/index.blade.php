@@ -3,7 +3,7 @@
 @section('title', $title)
 
 @section('content')
-    <div class="col-md-9">
+    <div class="col-md-8">
         <h2 class="title">Bienvenue sur E-lycée</h2>
         @forelse($posts as $post)
             <div class="post row">
@@ -12,17 +12,17 @@
                 </div>  
                 <div class="description col-sm-6">
                     <h3><a href="{{url('actualite',[$post->id])}}">{{$post->title}}</a></h3>
-                    <p>{{$post->abstract}}</p>
+                    <p class="excerpt">{{$post->abstract}}</p>
                     @if($post->date)
-                        <p><b>Plublié le :</b> {{$post->date->format('d/m/Y')}}</p>
+                        <p class="date"><b>Publié le :</b> {{$post->date->format('d/m/Y')}}</p>
                     @endif
                     @if($post->user)
-                        <p>Ecrit par : {{$post->user->username}}</p>
+                        <p class="autor"><b>Ecrit par :</b> {{$post->user->username}}</p>
                     @else
-                        pas d'auteur
+                        Pas d'auteur
                     @endif
                     @if($post->comments)
-                        <p>{{$post->comments->count()}} commentaire(s)</p>
+                        <p class="comment">{{$post->comments->count()}} commentaire(s)</p>
                     @else
                         0 commentaire
                     @endif
@@ -40,14 +40,14 @@
             <p>Pas d'article </p>
         @endforelse
     </div>
-    <div class="col-md-3 home-sidebar">
+    <div class="col-md-4 home-sidebar">
         <h3>A lire aussi</h3>
         @forelse($other as $otherPost)
             <div>
-                <h3><a href="{{url('actualite',[$otherPost->id])}}">{{$otherPost->title}}</a></h3>
+                <h3 class="more-post"><a href="{{url('actualite',[$otherPost->id])}}">{{$otherPost->title}}</a></h3>
                 <p>{{$otherPost->abstract}}</p>
                 @if($otherPost->date)
-                    <p><b>Plublié le :</b> {{$otherPost->date->format('d/m/Y')}}</p>
+                    <p><b>Publié le :</b> {{$otherPost->date->format('d/m/Y')}}</p>
                 @endif
             </div>
         @empty

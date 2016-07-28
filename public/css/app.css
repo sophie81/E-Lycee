@@ -5861,10 +5861,23 @@ ul.pagination li a {
     background-color: #eee;
     height: auto; }
     .post .description h3 {
+      font-size: 30px;
       margin-top: 0px;
       text-align: center; }
       .post .description h3 a {
         color: #a9425a; }
+    .post .description .excerpt {
+      font-size: 18px; }
+    .post .description .date,
+    .post .description .autor {
+      margin-bottom: 0;
+      font-size: 13px; }
+      .post .description .date b,
+      .post .description .autor b {
+        color: rgba(70, 201, 214, 0.59);
+        text-transform: uppercase; }
+    .post .description .comment {
+      text-align: right; }
     .post .description .link {
       text-align: right; }
     .post .description .read-more {
@@ -5904,6 +5917,13 @@ ul.pagination li a {
       text-align: center;
       text-decoration: none;
       color: #000; }
+
+.home-sidebar b {
+  color: rgba(70, 201, 214, 0.59);
+  text-transform: uppercase; }
+
+.home-sidebar .more-post a {
+  color: #a9425a; }
 
 .actu-post {
   margin-top: 25px; }
