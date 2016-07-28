@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
+
     <nav>
         <li><a href="{{url('teacher')}}">Dashboard</a></li>
         <li><a href="{{url('post')}}">Mes articles</a></li>
