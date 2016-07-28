@@ -5917,6 +5917,35 @@ ul.pagination li a {
 .content-pagination {
   text-align: center; }
 
+.single-post {
+  text-align: center; }
+  .single-post h2 {
+    text-align: center;
+    text-transform: uppercase;
+    margin: 40px 0; }
+  .single-post .txtdescription {
+    margin: 10px 0; }
+    .single-post .txtdescription .content {
+      font-size: 16px; }
+
+.comments {
+  margin: 40px 0; }
+  .comments h3 {
+    font-size: 25px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    color: #a9425a;
+    border-bottom: 2px solid #e6e6e6; }
+  .comments .single-comment h4 {
+    text-transform: uppercase; }
+    .comments .single-comment h4 span {
+      color: #a5a5a5;
+      text-transform: none; }
+  .comments .single-comment .txt-comment p {
+    padding-left: 15px; }
+  .comments .form-comment {
+    margin-top: 70px; }
+
 .form {
   text-align: center; }
   .form label {
