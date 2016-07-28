@@ -27,7 +27,7 @@
         @forelse($posts as $post)
             <tr>
                 <td>
-                    {{$post->title}}
+                    <a href="{{url('post',[$post->id, 'edit'])}}" class="btn btn-update mb10">{{$post->title}}</a>
                 </td>
                 <td>
                     @if($post->user)
@@ -37,13 +37,16 @@
                     @endif
                 </td>
                 <td>
-
+                    @if($post->comments)
+                        <p>{{$post->comments->count()}}</p>
+                    @else
+                        0
+                    @endif
                 </td>
                 <td>
                     <a href="{{url("changeStatus", $post->id)}}" class="btn btn-valid">{{$post->status}}</a>
                 </td>
                 <td>
-                    <a href="{{url('post',[$post->id, 'edit'])}}" class="btn btn-update mb10">Modifier</a>
                     <form class="destroy" method="POST" action="{{url('post', $post->id)}}">
                         {{ method_field('DELETE') }}
                         {{ csrf_field() }}
