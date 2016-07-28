@@ -10,10 +10,10 @@
                 <p class="content">{{$post->content}}</p>
                 <p>
                 @if($post->user)
-                    <b>Auteur :</b> <a href="{{url('user',[$post->user->id])}}">{{$post->user->username}}</a>
+                    <b>Auteur :</b> <span class="pink">{{$post->user->username}} <span class="black">|</span></span>
                 @endif
                 @if($post->date)
-                    <b>Plublié le :</b> {{$post->date->format('d/m/Y')}}</p>
+                    <b>Plublié le :</b> <span class="pink">{{$post->date->format('d/m/Y')}}</span></p>
                 @endif
             </div>
         </div>

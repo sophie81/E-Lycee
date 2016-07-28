@@ -14,13 +14,9 @@
             <div class="txt-description">
                 <p>{{$post->content}}</p>
                 @if($post->date)
-                    <p><b>Plublié le :</b> {{$post->date->format('d/m/Y')}}</p>
+                    <p><b>Publié le :</b> {{$post->date->format('d/m/Y')}}</p>
                 @endif
-                @if($post->user)
                     <p>Ecrit par : {{$post->user->username}}</p>
-                @else
-                    pas d'auteur
-                @endif
                 @if($post->comments)
                     <p>{{$post->comments->count()}} commentaire(s)</p>
                 @else

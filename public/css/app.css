@@ -5927,6 +5927,13 @@ ul.pagination li a {
     margin: 10px 0; }
     .single-post .txtdescription .content {
       font-size: 16px; }
+    .single-post .txtdescription b {
+      color: rgba(70, 201, 214, 0.59);
+      text-transform: uppercase; }
+    .single-post .txtdescription .pink {
+      color: #a9425a; }
+    .single-post .txtdescription .black {
+      color: #000; }
 
 .comments {
   margin: 40px 0; }
@@ -5940,11 +5947,26 @@ ul.pagination li a {
     text-transform: uppercase; }
     .comments .single-comment h4 span {
       color: #a5a5a5;
-      text-transform: none; }
+      text-transform: none;
+      font-size: 17px; }
   .comments .single-comment .txt-comment p {
     padding-left: 15px; }
   .comments .form-comment {
     margin-top: 70px; }
+    .comments .form-comment input,
+    .comments .form-comment textarea {
+      margin-bottom: 30px;
+      border: 1px solid #9a9a9a; }
+    .comments .form-comment textarea {
+      width: 350px;
+      height: 150px; }
+    .comments .form-comment .button button[type="submit"] {
+      background-color: rgba(70, 201, 214, 0.59);
+      border: 0;
+      border-radius: 5px;
+      padding: 5px 10px;
+      text-transform: uppercase;
+      color: #fff; }
 
 .form {
   text-align: center; }

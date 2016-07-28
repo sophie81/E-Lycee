@@ -279,9 +279,16 @@ ul.pagination li a {
   .txtdescription {
     margin: 10px 0;
 
-    .content {
-      font-size: 16px;
+    .content { font-size: 16px; }
+
+    b { 
+      color: rgba(70, 201, 214, 0.59); 
+      text-transform: uppercase;
     }
+
+    .pink { color: #a9425a; }
+
+    .black{ color: #000; }
   }
 }
 
@@ -314,6 +321,26 @@ ul.pagination li a {
 
   .form-comment {
     margin-top: 70px;
+
+    input,
+    textarea {
+      margin-bottom: 30px;
+      border: 1px solid #9a9a9a;
+    }
+
+    textarea {
+      width: 350px;
+      height: 150px;
+    }
+
+    .button button[type="submit"] {
+      background-color: rgba(70, 201, 214, 0.59);
+      border: 0;
+      border-radius: 5px;
+      padding: 5px 10px;
+      text-transform: uppercase;
+      color: #fff;
+    }
   }
 }
 
