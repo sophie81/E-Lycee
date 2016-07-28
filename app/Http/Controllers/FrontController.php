@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Post;
 use App\User;
+use Illuminate\Support\Facades\DB;
 use View;
 use Carbon\Carbon;
 use Cache;

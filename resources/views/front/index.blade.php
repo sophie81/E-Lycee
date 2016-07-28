@@ -21,6 +21,11 @@
                     @else
                         pas d'auteur
                     @endif
+                    @if($post->comments)
+                        <p>{{$post->comments->count()}} commentaire(s)</p>
+                    @else
+                        0 commentaire
+                    @endif
                     <div class="link">
                         <a href="{{url('actualite',[$post->id])}}" class="read-more">
                             <span>
