@@ -5,8 +5,7 @@
         <p class="msg">{{Session::get('message')}}</p>
     @endif
     <nav>
-        <li><a href="{{url('teacher')}}">Dashboard</a></li>
-        <li><a href="{{url('post')}}">Mes articles</a></li>
+        @include('partials.teacherNav')
     </nav>
     <nav>
         <li><a href="{{url('post','create')}}">Créer un article</a></li>

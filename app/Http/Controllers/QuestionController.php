@@ -5,12 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Http\Requests\PostRequest;
+use App\Http\Requests\QuestionRequest;
 
-use Auth;
-use App\Post;
+use App\Question;
+use App\Choice;
 
-class PostController extends Controller
+class QuestionController extends Controller
 {
     private $paginate = 10;
     /**
@@ -21,10 +21,10 @@ class PostController extends Controller
 
     public function index()
     {
-        $title = 'Post';
-        $posts = Post::with('comments', 'user')->paginate($this->paginate);
+        $title = 'Question';
+        $questions = Question::with('scores', 'choices')->paginate($this->paginate);
 
-        return view('admin.post.index', compact('posts', 'title'));
+        return view('admin.question.index', compact('questions', 'title'));
     }
 
     /**
@@ -34,9 +34,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        $userId = Auth::user()->id;
-
-        return view('admin.post.create', compact('comments','userId'));
+        return view('admin.question.create');
     }
 
     /**
@@ -45,17 +43,14 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PostRequest $request)
+    public function store(QuestionRequest $request)
     {
-        Post::create($request->all());
+        $question = Question::create($request->all());
+        for($i = 0; $i < $request->input(['nb_choice']); $i++){
+            Choice::create(['question_id' => $question->id]);
+        }
 
-        /*$im = $request->file('picture');
-
-        // refactoring voir plus bas la méthode private upload
-        if (!empty($im))
-            $this->upload($im, $request->input('name'), $post->id);*/
-
-        return redirect('post')->with('message', 'Article crée avec un succès');
+        return redirect()->action('ChoiceController@edit', $question->id);
     }
 
     /**
@@ -114,7 +109,7 @@ class PostController extends Controller
         return redirect('post')->with(['message'=>sprintf('L\'article %s a été supprimé avec succès.', $title)]);
     }
 
-    public function changeStatus($id)
+    public function changeStatusQuestion($id)
     {
         $post = Post::findOrFail($id);
         $title = $post->title;
