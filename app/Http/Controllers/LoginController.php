@@ -26,6 +26,7 @@ class LoginController extends Controller
             if(Auth::attempt($credentials, $remember)){
 
                 if (Auth::user()->role == 'teacher'){
+
                     return redirect('teacher')->with(['message' => 'Vous êtes maintenant connecté !']);
                 }else{
                     return redirect('student')->with(['message' => 'Vous êtes maintenant connecté !']);

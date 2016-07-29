@@ -26,13 +26,11 @@ class AdminController extends Controller
                 ->take(3)
                 ->get();
 
-            $comments = Comment::with('posts')
+            $comments = Comment::with('post')
                 ->get();
 
-            $user = Auth::user()->username;
+            return view('admin.teacher', compact('posts', 'questions', 'comments', 'title'));
 
-            return view('admin.teacher', compact('posts', 'questions', 'comments', 'title', 'user'));
-            
         }else{
             return redirect('login');
         }

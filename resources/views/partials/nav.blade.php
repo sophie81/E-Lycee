@@ -6,7 +6,15 @@
                 <img src="{{url('images/fb-like.jpg')}}" alt="Facebook" class="fb-like">
             </li>
             <li class="col-xs-6 right-nav">
-                <a href="{{url('login')}}" class="connect">Connexion</a>
+                @if(Auth::check())
+                    @if (Auth::user()->role == 'teacher')
+                        <a href="{{url('teacher')}}">Dashboard</a>
+                    @else
+                        <a href="{{url('student')}}">Dashboard</a>
+                    @endif
+                @else
+                    <a href="{{url('login')}}" class="connect">Connexion</a>
+                @endif
                 <a href="https://facebook.com/" target="_blank" class="fb logos"></a>
                 <a href="https://twitter.com/" target="_blank" class="twitter logos"></a>
             </li>
