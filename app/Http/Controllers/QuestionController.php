@@ -72,10 +72,9 @@ class QuestionController extends Controller
      */
     public function edit($id)
     {
-        $post = Post::findOrFail($id);
-        $userId = Auth::user()->id;
+        $question = Question::findOrFail($id);
 
-        return view('admin.post.edit', compact('post','userId'));
+        return view('admin.question.edit', compact('question'));
     }
 
     /**
@@ -85,12 +84,12 @@ class QuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(PostRequest $request, $id)
+    public function update(QuestionRequest $request, $id)
     {
-        $post = Post::find($id);
-        $post->update($request->all());
+        $question = Question::findOrFail($id);
+        $question->update($request->all());
 
-        return redirect('post')->with(['message'=>'Mise à jour de l\'article avec succès']);
+        return redirect('question')->with(['message'=>'Mise à jour de la question avec succès']);
     }
 
     /**
@@ -101,23 +100,23 @@ class QuestionController extends Controller
      */
     public function destroy($id)
     {
-        $post = Post::findOrFail($id);
-        $title = $post->title;
+        $question = Question::findOrFail($id);
+        $title = $question->title;
 
-        $post->delete();
+        $question->delete();
 
-        return redirect('post')->with(['message'=>sprintf('L\'article %s a été supprimé avec succès.', $title)]);
+        return redirect('question')->with(['message'=>sprintf('La question %s a été supprimé avec succès.', $title)]);
     }
 
     public function changeStatusQuestion($id)
     {
-        $post = Post::findOrFail($id);
-        $title = $post->title;
+        $question = Question::findOrFail($id);
+        $title = $question->title;
 
-        $status = $post->status=='published'? 'unpublished' : 'published';
-        $post->status = $status;
-        $post->save();
+        $status = $question->status=='published'? 'unpublished' : 'published';
+        $question->status = $status;
+        $question->save();
 
-        return redirect('post')->with(['message'=>'Le status a été modifié.']);
+        return redirect('question')->with(['message'=>sprintf('Le status de la question %s a été modifié.', $title)]);
     }
 }

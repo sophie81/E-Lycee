@@ -28,7 +28,7 @@ class QuestionRequest extends Request
             'title' => 'required|string',
             'content' => 'required|string',
             'class_level' => 'in:first_class,final_class',
-            'nb_choice' => 'required|in:1,2,3,4',
+            'nb_choice' => 'in:1,2,3,4',
             'status' => 'in:published,unpublished,draft',
         ];
     }

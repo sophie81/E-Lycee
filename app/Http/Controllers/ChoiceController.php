@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Choice;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -50,7 +51,7 @@ class ChoiceController extends Controller
     public function edit($id)
     {
         $question = Question::findOrFail($id);
-        return view('admin.choice.create', compact('question'));
+        return view('admin.choice.edit', compact('question'));
     }
 
     /**
@@ -62,7 +63,15 @@ class ChoiceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $choices = Choice::where('question_id', '=', $id)->get();
+        foreach($choices as $item){
+            $choice = $request->only(["content_{$item->id}", "status_{$item->id}"]);
+            $item->content = $choice["content_{$item->id}"];
+            $item->status = $choice["status_{$item->id}"];
+            $item->save();
+        }
+
+        return redirect('question')->with(['message'=>'Mise à jour de la question avec succès']);
     }
 
 }

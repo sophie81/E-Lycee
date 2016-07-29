@@ -14,6 +14,7 @@
         <thead>
         <tr>
             <th>Titre</th>
+            <th>Réponses</th>
             <th>Status</th>
             <th>Action (suppression)</th>
         </tr>
@@ -25,6 +26,9 @@
             <tr>
                 <td>
                     <a href="{{url('question',[$question->id, 'edit'])}}" class="btn btn-update mb10">{{$question->title}}</a>
+                </td>
+                <td>
+                    <a href="{{url('question',[$question->id, 'choice'])}}" class="btn btn-update mb10">{{$question->choices->count()}}</a>
                 </td>
                 <td>
                     <a href="{{url("changeStatusQuestion", $question->id)}}" class="btn btn-valid">{{$question->status}}</a>
