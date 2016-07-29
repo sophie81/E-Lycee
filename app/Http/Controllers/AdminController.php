@@ -20,7 +20,9 @@ class AdminController extends Controller
                 ->take(3)
                 ->get();
 
-            return view('admin.teacher', compact('posts', 'title'));
+            $user = Auth::user()->username;
+
+            return view('admin.teacher', compact('posts', 'user','title'));
         }else{
             return redirect('login');
         }
@@ -30,7 +32,9 @@ class AdminController extends Controller
         if (Auth::user()->role == 'first_class' || Auth::user()->role == 'final_class') {
             $title = 'Admin Student';
 
-            return view('admin.student', compact('title'));
+            $user = Auth::user()->username;
+
+            return view('admin.student', compact('title', 'user'));
         }else{
             return redirect('login');
         }
