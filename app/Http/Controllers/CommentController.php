@@ -10,6 +10,19 @@ use App\Comment;
 class CommentController extends Controller
 {
 
+    private $paginate = 10;
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+
+    public function index()
+    {
+        $title = 'Commentaires';
+        $comments = Comment::with('post')->paginate($this->paginate);
+        return view('admin.comment.index', compact('comments', 'title'));
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -20,7 +33,7 @@ class CommentController extends Controller
     {
         Comment::create($request->all());
         //dd($comment);
-        return back()->with(['message' => sprintf('Votre article a bien été enregistré !')]);
+        return back()->with(['message' => sprintf('Votre commentaire a bien été enregistré !')]);
     }
 
     /**
@@ -66,5 +79,16 @@ class CommentController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function changeStatusComment($id)
+    {
+        $comment = Comment::findOrFail($id);
+
+        $status = $comment->status=='published'? 'unpublished' : 'published';
+        $comment->status = $status;
+        $comment->save();
+
+        return redirect('comment')->with(['message'=>'Le status a été modifié.']);
     }
 }
