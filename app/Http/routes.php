@@ -20,7 +20,6 @@ Route::get('mentions', 'FrontController@mentions');
 Route::resource('comment', 'CommentController');
 
 
-
 Route::group(['middleware' => ['web']], function () {
     Route::any('login', 'LoginController@login');
     Route::get('logout', 'LoginController@logout');
@@ -34,5 +33,6 @@ Route::group(['middleware' => ['web']], function () {
         Route::put('question/{id}/choice', 'ChoiceController@update');
         Route::get('changeStatus/{id}', 'PostController@changeStatus');
         Route::get('changeStatusQuestion/{id}', 'QuestionController@changeStatusQuestion');
+        Route::get('changeStatusComment/{id}', 'CommentController@changeStatusComment');
     });
 });

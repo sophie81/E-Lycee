@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
+use App\Question;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -19,10 +21,18 @@ class AdminController extends Controller
                 ->orderBy('date', 'desc')
                 ->take(3)
                 ->get();
+            $questions = Question::with('choices', 'scores')
+                ->orderBy('id', 'desc')
+                ->take(3)
+                ->get();
+
+            $comments = Comment::with('posts')
+                ->get();
 
             $user = Auth::user()->username;
 
-            return view('admin.teacher', compact('posts', 'user','title'));
+            return view('admin.teacher', compact('posts', 'questions', 'comments', 'title', 'user'));
+            
         }else{
             return redirect('login');
         }
