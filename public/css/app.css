@@ -5758,6 +5758,18 @@ table {
 a:hover, a:focus {
   text-decoration: none; }
 
+.msg {
+  background-color: #9edc3c;
+  padding: 10px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 15px;
+  width: 200px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px; }
+
 .error-msg {
   margin-top: 20px;
   background-color: rgba(215, 44, 44, 0.8);
@@ -5811,8 +5823,6 @@ ul.pagination li a {
     width: 60px; }
   .top-nav .right-nav {
     text-align: right; }
-    .top-nav .right-nav p {
-      display: inline-block; }
     .top-nav .right-nav .connect {
       transition: ease-in-out 0.4s; }
     .top-nav .right-nav .logos {

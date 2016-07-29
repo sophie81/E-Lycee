@@ -34,6 +34,19 @@ a:hover, a:focus {
   text-decoration: none;
 }
 
+.msg {
+    background-color: #9edc3c;
+    padding: 10px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 15px;
+    width: 200px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
 .error-msg {
     margin-top: 20px;
     background-color: rgba(215, 44, 44, 0.8);

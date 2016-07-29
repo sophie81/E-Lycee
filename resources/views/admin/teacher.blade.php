@@ -4,7 +4,7 @@
         @include('partials.teacherNav')
     </nav>
     @if(Session::has('message'))
-        <p class="msg">{{Session::get('message')}}</p>
+        <div class="msg">{{Session::get('message')}}</div>
     @endif
     <div class="col-md-4 list-post">
         <div class="panel-group">
