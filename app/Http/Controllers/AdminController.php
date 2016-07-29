@@ -23,7 +23,6 @@ class AdminController extends Controller
                 ->get();
             $questions = Question::with('choices', 'scores')
                 ->orderBy('id', 'desc')
-                ->take(3)
                 ->get();
 
             $comments = Comment::with('post')

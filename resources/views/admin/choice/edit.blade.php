@@ -29,15 +29,10 @@
             <p>pas de reponse</p>
         @endforelse
         <div class="container-btn">
-            <br><input type="submit" value="Créer" class="btn-validate">
+            <br><input type="submit" value="Valider" class="btn-validate">
+            <a href="{{url("question")}}" class="btn-delete">Annuler</a>
         </div>
     </form>
 
-    <form class="destroy" method="POST" action="{{url('question', $question->id)}}">
-        {{ method_field('DELETE') }}
-        {{ csrf_field() }}
-        <input type="hidden" name="title_h" value="{{$question->title}}">
-        <input class="btn btn-closed" name="delete" type="submit" value="Annuler">
-    </form>
 
 @endsection

@@ -30,7 +30,7 @@
                     <a data-toggle="collapse" href="#collapse2"><h2 class="panel-title">Gestion des questions </h2></a>
                 </div>
                 <div id="collapse2" class="panel-collapse collapse list">
-                     @forelse($questions as $question)
+                     @forelse($questions->take(3) as $question)
                         <h3><a href="{{url('question',[$question->id, 'edit'])}}">{{$question->title}}</a></h3>
                     @empty
                         <p>Pas de question </p>
@@ -48,6 +48,7 @@
                 </div>
                 <div id="collapse3" class="panel-collapse collapse list">
                     <p>{{$comments->count()}} commentaires</p>
+                    <p>{{$questions->count()}} questions</p>
                 </div>
             </div>
         </div>

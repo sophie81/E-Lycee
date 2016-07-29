@@ -39,7 +39,7 @@
             @endif
         </div>
         <div class="container-btn">
-            <br><input type="submit" value="Créer" class="btn-validate">
+            <br><input type="submit" value="Valider" class="btn-validate">
             <a href="{{url("question")}}" class="btn-delete">Annuler</a>
         </div>
     </form>
