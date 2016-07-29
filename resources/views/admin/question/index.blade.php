@@ -31,7 +31,10 @@
                     <a href="{{url('question',[$question->id, 'choice'])}}" class="btn btn-update mb10">{{$question->choices->count()}}</a>
                 </td>
                 <td>
-                    <a href="{{url("changeStatusQuestion", $question->id)}}" class="btn btn-valid">{{$question->status}}</a>
+                    <a href="{{url("changeStatus", $question->id)}}">
+                        <button class="btn btn-valid {{$question->status=='unpublished'? 'red' : 'green'}}">
+                        </button>
+                    </a>
                 </td>
                 <td>
                     <form class="destroy" method="POST" action="{{url('question', $question->id)}}">

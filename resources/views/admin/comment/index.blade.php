@@ -32,7 +32,10 @@
                     <p>{{$comment->post->title}}</p>
                 </td>
                 <td>
-                    <a href="{{url("changeStatusComment", $comment->id)}}" class="btn btn-valid">{{$comment->status}}</a>
+                    <a href="{{url("changeStatus", $comment->id)}}">
+                        <button class="btn btn-valid {{$comment->status=='unpublished'? 'red' : 'green'}}">
+                        </button>
+                    </a>
                 </td>
 
             </tr>

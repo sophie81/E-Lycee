@@ -5730,6 +5730,12 @@ button.close {
   .hidden-print {
     display: none !important; } }
 
+.red {
+  background-color: red; }
+
+.green {
+  background-color: green; }
+
 body {
   font-family: 'Marvel', sans-serif; }
 

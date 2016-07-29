@@ -45,7 +45,10 @@
                     @endif
                 </td>
                 <td>
-                    <a href="{{url("changeStatus", $post->id)}}" class="btn btn-valid">{{$post->status}}</a>
+                    <a href="{{url("changeStatus", $post->id)}}">
+                        <button class="btn btn-valid {{$post->status=='unpublished'? 'red' : 'green'}}">
+                        </button>
+                    </a>
                 </td>
                 <td>
                     <form class="destroy" method="POST" action="{{url('post', $post->id)}}">

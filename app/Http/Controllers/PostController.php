@@ -22,7 +22,9 @@ class PostController extends Controller
     public function index()
     {
         $title = 'Post';
-        $posts = Post::with('comments', 'user')->paginate($this->paginate);
+        $posts = Post::with('comments', 'user')
+            ->orderBy('date', 'desc')
+            ->paginate($this->paginate);
 
         return view('admin.post.index', compact('posts', 'title'));
     }

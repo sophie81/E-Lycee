@@ -15,7 +15,7 @@ class CreateChoicesTable extends Migration
         Schema::create('choices', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('question_id')->nullable();
-            $table->foreign('question_id')->references('id')->on('questions');
+            $table->foreign('question_id')->references('id')->on('questions')->onDelete('cascade');
             $table->text('content');
             $table->enum('status', ['true', 'false']);
             $table->timestamps();
