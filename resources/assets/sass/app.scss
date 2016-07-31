@@ -1,11 +1,13 @@
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
 .red{
-  background-color: red;
+  background-color: #ff4e4e;
+  padding: 8px;
 }
 
 .green{
-  background-color: green;
+  background-color: #75ce24;
+  padding: 8px;
 }
 
 body {
@@ -25,7 +27,82 @@ li {
   list-style: none;
 }
 
-table { margin-top: 50px; }
+table { 
+  margin-top: 50px; 
+  border-bottom: 2px solid #ddd;
+  text-align: center;
+}
+
+thead tr th {
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: rgba(70, 201, 214, 0.59);
+    font-weight: bold;
+    text-align: center;
+}
+
+table {
+  tbody tr td.title-table {
+    text-align: left;
+    a {
+      text-transform: uppercase;
+      font-size: 16px;
+      color: #a9425a;
+    }
+  }
+}
+
+.form-group {
+  margin: 30px 0;
+
+  label {
+    color: rgba(70, 201, 214, 0.59);
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+}
+
+.form-check {
+  margin-top: 10px;
+
+  label { text-transform: uppercase; }
+  input { margin-right: 10px; }
+}
+
+.form-create {
+  margin-top: 50px;
+}
+
+.container-btn { 
+  margin-bottom: 30px;
+  text-align: center; 
+}
+
+.btn-closed {
+  background-color: #ff4e4e;
+  color: #fff;
+  padding: 3px 8px;
+}
+
+.btn-validate {
+  border: 0;
+  background-color: #75ce24;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.btn-delete {
+  background-color: #ff4e4e;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 5px;
+}
+ 
+.table > tbody > tr > td {
+  text-align: center;
+  vertical-align: middle;
+}
 
 .h1-form {
   display: block;
@@ -103,8 +180,7 @@ ul.pagination li a {
 
   a {
     color: #FFF;
-    font-size: 15px;
-    padding: 0 10px;
+    font-size: 12px;
     text-transform: uppercase;
   }
 
@@ -123,6 +199,22 @@ ul.pagination li a {
 
   .right-nav {
     text-align: right;
+
+    p { 
+      display: inline-block; 
+      color: #FFF;
+      font-size: 14px;
+      margin-right: 0;
+      text-transform: uppercase;
+
+      .username {
+        color: #75ce24;
+      }
+    }
+
+    .btn-deco {
+      font-size: 11px;
+    }
 
     .connect {
       @include transition(ease-in-out 0.4s);
@@ -210,6 +302,7 @@ ul.pagination li a {
       color: #000;
       font-size: 20px;
       text-transform: uppercase;
+      margin-right: 10px;
     }
   }
 }
@@ -491,6 +584,7 @@ footer {
 
 .list-post {
   margin-top: 50px;
+  position: relative;
 
   .panel-heading { 
     padding: 0; 
@@ -517,9 +611,19 @@ footer {
       padding-bottom: 10px;
       margin-top: 10px;
       font-size: 20px;
+      text-align: center;
+      position: relative;
 
       a {
         color: #a9425a;
+        display: inline-block;
+      }
+
+      button {
+        position: absolute;
+        left: 0;
+        top: 0;
+        margin-top: 4px;
       }
     }
 
@@ -529,6 +633,46 @@ footer {
 
 .content-form {
   text-align: center;
+}
+
+.level {
+  margin-right: 20px;
+}
+
+.title-question {
+  color: #a9425a;
+  font-size: 28px;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 0;
+
+  span { text-transform: uppercase; }
+}
+
+.table-question tbody tr td{
+  text-align: left;
+
+  a { padding: 0; }
+}
+
+thead tr th,
+.table-comment tbody tr td {
+  text-align: left;
+}
+
+.table-comment .td-status { text-align: center; }
+
+.table-post {
+  .th-title {
+    text-align: left;
+  }
+  thead tr th,
+  tbody > tr > td {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 400px) {
 }
 
 @media screen and (min-width: 768px) {
@@ -576,6 +720,11 @@ footer {
     .connect:hover {
       color: #000;
       @include transition(ease-in-out 0.4s);
+    }
+
+    p {
+      font-size: 12px;
+      margin-right: 5px;
     }
   }
 
@@ -625,6 +774,13 @@ footer {
       @include transition(all 0.4s);
     }
   }
+
+  .top-nav {
+    a {
+      font-size: 15px;
+      padding: 0 10px;
+    }
+  }
 }
 
 @media screen and (min-width: 992px) {
@@ -634,5 +790,4 @@ footer {
       font-size: 36px;
     }
   }
-
 }

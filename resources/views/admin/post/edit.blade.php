@@ -13,34 +13,36 @@
             {{csrf_field()}}
             <input type="hidden" name="_method" value="PATCH">
             <input type="hidden" name="user_id" value="{{$userId}}">
-            <div class="title">
-            <label>Titre :</label>
-            <input type="text" name="title" value="{{$post->title}}">
-            @if($errors->has('title'))
-                <p><span class="error">{{$errors->first('title')}}</span></p>
-            @endif
+            <div class="title form-group">
+                <label>Titre :</label>
+                <input type="text" name="title" value="{{$post->title}}" class="form-control">
+                @if($errors->has('title'))
+                    <p><span class="error">{{$errors->first('title')}}</span></p>
+                @endif
             </div>
-            <div class="content-post">
+            <div class="content-post form-group">
                 <label>Extrait :</label>
-                <textarea name="abstract">{{$post->abstract}}</textarea>
+                <textarea name="abstract" class="form-control">{{$post->abstract}}</textarea>
                 @if($errors->has('abstract'))
                     <p><span class="error">{{$errors->first('abstract')}}</span></p>
                 @endif
             </div>
-            <div class="content-post">
+            <div class="content-post form-group">
                 <label>Contenu :</label>
-                <textarea name="content">{{$post->content}}</textarea>
+                <textarea name="content" class="form-control">{{$post->content}}</textarea>
                 @if($errors->has('content'))
                     <p><span class="error">{{$errors->first('content')}}</span></p>
                 @endif
             </div>
-            <div class="photo">
+            <div class="photo form-group">
                 <label>Photo :</label>
-                <input type="text" name="url_thumbnail" value="{{$post->url_thumbnail}}">
+                <input type="text" name="url_thumbnail" value="{{$post->url_thumbnail}}" class="form-control">
             </div>
-            <div class="date">
+            <div class="date form-group">
                 <label>Date :</label>
-                <input type="date" name="date" value="{{$post->date->format('Y-m-d')}}">
+                <input type="date" name="date" value="{{$post->date->format('Y-m-d')}}" class="form-control">
+            </div>
+            <div class="form-group">
                 <p><label for="status">Publier l'article:</label> <input {{$post->status=='published'? 'checked' : ''}} id="status" type="checkbox" name="status" value="published"></p>
             </div>
             <div class="container-btn">

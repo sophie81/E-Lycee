@@ -12,10 +12,10 @@
             <li><a href="{{url('post','create')}}">Créer un article</a></li>
         </ul>
     </nav>
-    <table class="table">
+    <table class="table table-post">
         <thead>
         <tr>
-            <th>Titre</th>
+            <th class="th-title">Titre</th>
             <th>Auteur</th>
             <th>Commentaire</th>
             <th>Status</th>
@@ -27,8 +27,8 @@
         </div>
         @forelse($posts as $post)
             <tr>
-                <td>
-                    <a href="{{url('post',[$post->id, 'edit'])}}" class="btn btn-update mb10">{{$post->title}}</a>
+                <td class="title-table">
+                    <a href="{{url('post',[$post->id, 'edit'])}}">{{$post->title}}</a>
                 </td>
                 <td>
                     @if($post->user)

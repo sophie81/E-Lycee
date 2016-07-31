@@ -8,7 +8,7 @@
         @include('partials.teacherNav')
     </nav>
 
-    <table class="table">
+    <table class="table table-comment">
         <thead>
         <tr>
             <th>Pseudonyme</th>
@@ -31,7 +31,7 @@
                 <td>
                     <p>{{$comment->post->title}}</p>
                 </td>
-                <td>
+                <td class="td-status">
                     <a href="{{url("changeStatus", $comment->id)}}">
                         <button class="btn btn-valid {{$comment->status=='unpublished'? 'red' : 'green'}}">
                         </button>

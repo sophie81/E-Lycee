@@ -7,33 +7,35 @@
     <nav>
         @include('partials.teacherNav')
     </nav>
-    <form action="{{url('question', [$question->id])}}" method="POST" class="ml100">
-        {{csrf_field()}}
-        <input type="hidden" name="_method" value="PATCH">
-        <div>
-            <label>Sélectionnez le niveau de la question :</label>
-            <select name="class_level">
-                <option {{$question->class_level=='first_class' ? 'selected' : ''}} value="first_class">first_class</option>
-                <option {{$question->class_level=='final_class' ? 'selected' : ''}} value="final_class">final_class</option>
-            </select>
-        </div>
-        <div class="title">
-            <label>Entrer un titre:</label>
-            <input type="text" name="title" value="{{$question->title}}">
-            @if($errors->has('title'))
-                <p><span class="error">{{$errors->first('title')}}</span></p>
-            @endif
-        </div>
-        <div class="content-post">
-            <label>Entrer le contenu de la question :</label>
-            <textarea name="content">{{$question->content}}</textarea>
-            @if($errors->has('content'))
-                <p><span class="error">{{$errors->first('content')}}</span></p>
-            @endif
-        </div>
-        <div class="container-btn">
-            <br><input type="submit" value="Modifier" class="btn-validate">
-            <a href="{{url("question")}}" class="btn-delete">Annuler</a>
-        </div>
-    </form>
+    <div class="col-md-6 col-md-offset-3">
+        <form action="{{url('question', [$question->id])}}" method="POST" class="ml100">
+            {{csrf_field()}}
+            <input type="hidden" name="_method" value="PATCH">
+            <div class="form-group">
+                <label>Sélectionnez le niveau de la question :</label>
+                <select name="class_level" class="form-control">
+                    <option {{$question->class_level=='first_class' ? 'selected' : ''}} value="first_class">first_class</option>
+                    <option {{$question->class_level=='final_class' ? 'selected' : ''}} value="final_class">final_class</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Entrer un titre:</label>
+                <input type="text" name="title" value="{{$question->title}}" class="form-control">
+                @if($errors->has('title'))
+                    <p><span class="error">{{$errors->first('title')}}</span></p>
+                @endif
+            </div>
+            <div class="content-post form-group">
+                <label>Entrer le contenu de la question :</label>
+                <textarea name="content" class="form-control">{{$question->content}}</textarea>
+                @if($errors->has('content'))
+                    <p><span class="error">{{$errors->first('content')}}</span></p>
+                @endif
+            </div>
+            <div class="container-btn">
+                <br><input type="submit" value="Modifier" class="btn-validate">
+                <a href="{{url("question")}}" class="btn-delete">Annuler</a>
+            </div>
+        </form>
+    </div>
 @endsection

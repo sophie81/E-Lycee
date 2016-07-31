@@ -8,9 +8,11 @@
         @include('partials.teacherNav')
     </nav>
     <nav>
-        <li><a href="{{url('question','create')}}">Créer une question</a></li>
+        <ul class="bottom-nav-admin">
+            <li><a href="{{url('question','create')}}">Créer une question</a></li>
+        </ul>
     </nav>
-    <table class="table">
+    <table class="table table-question">
         <thead>
         <tr>
             <th>Titre</th>
