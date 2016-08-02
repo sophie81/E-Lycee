@@ -59,7 +59,7 @@ class AdminController extends Controller
                         'question_id' => $questions[$i]->id,
                     ]);
                 }
-                $count += $questions[$i]->choices->first()->count();
+                $count += $questions[$i]->choices->count();
             }
 
 
