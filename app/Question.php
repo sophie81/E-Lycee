@@ -12,7 +12,16 @@ class Question extends Model
         return $this->hasOne('App\Score');
     }
 
-    public function choices(){
+    public function choices()
+    {
         return $this->hasMany('App\Choice');
+    }
+
+    public function scopeOpened($query){
+        return $query->where('status', '=', 'published');
+    }
+
+    public function scopeClosed($query){
+        return $query->where('status', '=', 'unpublished');
     }
 }

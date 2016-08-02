@@ -12,4 +12,11 @@ class Comment extends Model
     public function post(){
         return $this->belongsTo('App\Post');
     }
+    public function scopeOpened($query){
+        return $query->where('status', '=', 'published');
+    }
+
+    public function scopeClosed($query){
+        return $query->where('status', '=', 'unpublished');
+    }
 }

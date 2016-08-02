@@ -45,6 +45,7 @@ class AdminController extends Controller
 
             $questions = Question::with('choices', 'score')
                 ->where('class_level', '=', Auth::user()->role)
+                ->opened()
                 ->orderBy('id', 'desc')
                 ->get();
 
@@ -78,6 +79,7 @@ class AdminController extends Controller
 
             $questions = Question::with('choices', 'score')
                 ->where('class_level', '=', Auth::user()->role)
+                ->opened()
                 ->orderBy('id', 'desc')
                 ->get();
 
