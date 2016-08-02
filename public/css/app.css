@@ -5934,9 +5934,12 @@ ul.pagination li a {
       .bottom-nav li a:active {
         color: blue; }
   .bottom-nav .search-bar {
-    height: 30px; }
-  .bottom-nav .loupe {
-    width: 20px; }
+    height: 30px;
+    display: inline-block;
+    width: auto; }
+  .bottom-nav .search-submit {
+    border: 0;
+    background-color: transparent; }
   .bottom-nav form {
     display: inline-block; }
     .bottom-nav form input[type="submit"] {
@@ -6078,14 +6081,17 @@ ul.pagination li a {
   .comments .single-comment .txt-comment p {
     padding-left: 15px; }
   .comments .form-comment {
-    margin-top: 70px; }
+    margin-top: 50px; }
+    .comments .form-comment form {
+      padding: 0; }
     .comments .form-comment input,
     .comments .form-comment textarea {
       margin-bottom: 30px;
       border: 1px solid #9a9a9a; }
     .comments .form-comment textarea {
-      width: 350px;
       height: 150px; }
+    .comments .form-comment h3 {
+      margin-bottom: 0; }
 
 .button button[type="submit"] {
   background-color: rgba(70, 201, 214, 0.59);
@@ -6215,6 +6221,12 @@ thead tr th,
 .table-post tbody > tr > td {
   text-align: center; }
 
+.title-search {
+  margin: 50px 0;
+  text-align: center; }
+  .title-search span {
+    text-transform: uppercase; }
+
 @media screen and (min-width: 768px) {
   .bottom-nav li a,
   .bottom-nav-admin li a {
@@ -6275,7 +6287,9 @@ thead tr th,
     transition: all 0.4s; }
   .top-nav a {
     font-size: 15px;
-    padding: 0 10px; } }
+    padding: 0 10px; }
+  .title-search {
+    margin-bottom: 20px; } }
 
 @media screen and (min-width: 992px) {
   .top-nav h1 {

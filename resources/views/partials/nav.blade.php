@@ -29,11 +29,10 @@
                 <a href="{{url('actualites')}}">Actus</a>
                 <a href="{{url('lycee')}}">Lycée</a>
             </li>
-            <li class="col-md-6">
-                <img src="{{url('images/loupe.png')}}" alt="Loupe" class="loupe">
-                <form method="get" role="search">
-                    <input type="text" id="search-bar" name="search-bar" class="search-bar">
-                    <input type="submit" value="Ok">
+            <li class="col-md-6 form-inline">
+                <form action="{{url('search')}}" method="GET" role="search">
+                    <input type="text" name="search-bar" class="search-bar form-control">
+                    <button type="submit" class="search-submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                 </form>
             </li>
         </ul>

@@ -71,6 +71,26 @@ class FrontController extends Controller
 
         return view('front.mentions', compact('title'));
     }
+
+    public function search($search){
+        $search = urldecode($search);
+        
+        $posts = Post::select()
+        ->where('title', 'LIKE', '%'.$search.'%')
+        ->orderBy('date', 'desc')
+        ->get();
+
+        if (count($posts) == 0) {
+            return view('front.search')
+            ->with('message', 'Aucun article ne correspond à votre recherche')
+            ->with('search', $search);
+        } else {
+            return view('front.search')
+            ->with('posts', $posts)
+            ->with('search', $search);
+        }
+    }
+
 /*
     public function showUser($id){
         $title = 'Auteur';

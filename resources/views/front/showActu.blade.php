@@ -18,42 +18,46 @@
             </div>
         </div>
         <div class="col-xs-12 comments">
-            @if($post->comments)
-                <h3>{{$post->comments->count()}} commentaire(s)</h3>
-            @else
-                0 commentaire
-            @endif
-            @forelse($post->comments as $comment)
-                <div class="single-comment">
-                    <h4>{{$comment->title}} 
-                        <span>le</span>
-                        @if($comment->date)
-                            {{$comment->date->format('d/m/Y')}}
-                        @endif
-                    </h4>
-                    <div class="txt-comment">
-                        <p>{{$comment->content}}</p>
+            <div class="comment-list">
+                @if($post->comments)
+                    <h3>{{$post->comments->count()}} commentaire(s)</h3>
+                @else
+                    0 commentaire
+                @endif
+                @forelse($post->comments as $comment)
+                    <div class="single-comment">
+                        <h4>{{$comment->title}} 
+                            <span>le</span>
+                            @if($comment->date)
+                                {{$comment->date->format('d/m/Y')}}
+                            @endif
+                        </h4>
+                        <div class="txt-comment">
+                            <p>{{$comment->content}}</p>
+                        </div>
                     </div>
-                </div>
-            @empty
-                <p>0 commentaire </p>
-            @endforelse
-            <form action="{{url('comment')}}" method="POST" class="form-comment">
-                {{csrf_field()}}
+                @empty
+                    <p>0 commentaire </p>
+                @endforelse
+            </div>
+            <div class="form-comment">
                 <h3>Ajouter un commentaire</h3>
-                <div>
-                    <input type="text" name="title" id="nom" placeholder="Pseudo" />
-                </div>
-                <div>
-                    <textarea id="message" name="content" placeholder="Votre message"></textarea>
-                </div>
-                <input type="hidden" name="date" value="{{date('Y-m-d H:i:s')}}">
-                <input type="hidden" name="post_id" value="{{$post->id}}">
+                <form action="{{url('comment')}}" method="POST" class="col-md-6">
+                    {{csrf_field()}}
+                    <div class="form-group">
+                        <input type="text" name="title" id="nom" placeholder="Pseudo" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="content" placeholder="Votre message" class="form-control"></textarea>
+                    </div>
+                    <input type="hidden" name="date" value="{{date('Y-m-d H:i:s')}}">
+                    <input type="hidden" name="post_id" value="{{$post->id}}">
 
-                <div class="button">
-                    <button type="submit">Envoyer</button>
-                </div>
-            </form>
+                    <div class="button">
+                        <button type="submit">Envoyer</button>
+                    </div>
+                </form>
+            </div>
         </div>
     @else
         <p>Pas d'article</p>
