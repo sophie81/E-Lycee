@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Choice;
 use App\Comment;
 use App\Question;
 use App\Score;
@@ -37,6 +38,7 @@ class AdminController extends Controller
         }
     }
 
+
     public function student(){
         if (Auth::user()->role == 'first_class' || Auth::user()->role == 'final_class') {
             $title = 'Admin Student';
@@ -48,17 +50,26 @@ class AdminController extends Controller
 
             $user = User::findOrFail(Auth::user()->id);
 
+            $count = 0;
+
             for($i = 0; $i < $questions->count(); $i++){
-                Score::create(['user_id' => $user->id,
-                    'question_id' => $questions[$i]->id,
-                ]);
+                $scores = Score::where('user_id', '=', $user->id)->where('question_id', '=', $questions[$i]->id)->get();
+                if($scores->count() <= 0) {
+                    Score::create(['user_id' => $user->id,
+                        'question_id' => $questions[$i]->id,
+                    ]);
+                }
+                $count += $questions[$i]->choices->first()->count();
             }
 
-            return view('admin.student', compact('title', 'questions', 'user'));
+
+
+            return view('admin.student', compact('title', 'questions', 'user', 'count'));
         }else{
             return redirect('login');
         }
     }
+
 
     public function qcm(){
         if (Auth::user()->role == 'first_class' || Auth::user()->role == 'final_class') {
@@ -72,11 +83,14 @@ class AdminController extends Controller
 
             $user = User::findOrFail(Auth::user()->id);
 
-            return view('admin.qcm', compact('questions', 'user', 'title'));
+            $scores_user = Score::where('user_id', '=', $user->id)->get();
+
+            return view('admin.qcm', compact('questions', 'user', 'title', 'scores_user'));
         }else{
             return redirect('login');
         }
     }
+
 
     public function qcmEdit($id){
 
@@ -85,14 +99,30 @@ class AdminController extends Controller
         return view('admin.qcmEdit', compact('question'));
     }
 
+
     public function qcmUpdate(Request $request, $id)
     {
-        $question = Question::findOrFail($id);
-        for($i = 0; $i < $question->choices->count(); $i++){
+        $choices = Choice::where('question_id', '=', $id)->get();
+        $score = 0;
+        foreach($choices as $item){
             //calcul du score
-           $score = 0;
+            $rep = !empty($request->input("reponse_{$item->id}")) ? 'true':'false';
+            if($item->status == $rep){
+                $score += 1;
+            }else{
+                $score -= 1;
+            }
         }
-
+        if($score < 0){
+            $score = 0;
+        }
+        $score_old = Score::where('user_id', '=', Auth::user()->id)->where('question_id', '=', $id)->get();
+        foreach($score_old as $item) {
+            var_dump('la');
+            $item->status_question = 'yes';
+            $item->note = $score;
+            $item->save();
+        }
 
         return redirect('qcm')->with(['message'=>sprintf('Vous avez obtenu %s point(s)', $score)]);
     }

@@ -12,7 +12,6 @@
             {{csrf_field()}}
             <input type="hidden" name="_method" value="PUT">
             @forelse($question->choices as $index => $choice)
-                <input type="hidden" name="choice_id_{{$choice->id}}" value="{{$choice->id}}">
                 <div class="title form-group">
                         <label for="cbox{{$index}}" class="form-check-label"><input class="form-check-input" type="checkbox" name="reponse_{{$choice->id}}" id="cbox{{$index}}" value="true">
                         {{$choice->content}}

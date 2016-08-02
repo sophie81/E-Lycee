@@ -32,7 +32,6 @@ class CommentController extends Controller
     public function store(Request $request)
     {
         Comment::create($request->all());
-        //dd($comment);
         return back()->with(['message' => sprintf('Votre commentaire a bien été enregistré !')]);
     }
 
