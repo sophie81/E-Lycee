@@ -167,6 +167,52 @@ ul.pagination li a {
   border-radius: 30px;
 }
 
+.ui-dialog.ui-widget.ui-widget-content.ui-corner-all.ui-front.ui-dialog-buttons.ui-draggable.ui-resizable {
+  border: 1px solid #a9425a;
+  border-radius: 5px;
+  text-align: center;
+  background-color: #fdfdfd;
+  box-shadow: 0px 3px 5px 0px #bdbdbd;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.ui-dialog-buttonpane.ui-widget-content.ui-helper-clearfix {
+  margin-bottom: 10px;
+
+  .ui-dialog-buttonset {
+    button {
+      margin-right: 5px;
+      border: 0;
+      border-radius: 5px;
+      color: #fff;
+      padding: 5px 10px;
+    }
+    button:first-child {
+      background-color: #75ce24;
+    }
+
+    button:last-child {
+      background-color: #ff4e4e;
+    }
+  }
+}
+
+#confirm {
+  font-size: 15px;
+  padding: 5px;
+  span { 
+    font-weight: bold;
+    text-transform: uppercase; 
+  }
+
+  p {
+    padding: 5px;
+  }
+}
+
 .top-nav {
   background-color: #a9425a;
   height: 51px;

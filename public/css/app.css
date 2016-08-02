@@ -5869,6 +5869,37 @@ ul.pagination li a {
 .pagination > li:last-child > span {
   border-radius: 30px; }
 
+.ui-dialog.ui-widget.ui-widget-content.ui-corner-all.ui-front.ui-dialog-buttons.ui-draggable.ui-resizable {
+  border: 1px solid #a9425a;
+  border-radius: 5px;
+  text-align: center;
+  background-color: #fdfdfd;
+  box-shadow: 0px 3px 5px 0px #bdbdbd; }
+  .ui-dialog.ui-widget.ui-widget-content.ui-corner-all.ui-front.ui-dialog-buttons.ui-draggable.ui-resizable:focus {
+    outline: none; }
+
+.ui-dialog-buttonpane.ui-widget-content.ui-helper-clearfix {
+  margin-bottom: 10px; }
+  .ui-dialog-buttonpane.ui-widget-content.ui-helper-clearfix .ui-dialog-buttonset button {
+    margin-right: 5px;
+    border: 0;
+    border-radius: 5px;
+    color: #fff;
+    padding: 5px 10px; }
+  .ui-dialog-buttonpane.ui-widget-content.ui-helper-clearfix .ui-dialog-buttonset button:first-child {
+    background-color: #75ce24; }
+  .ui-dialog-buttonpane.ui-widget-content.ui-helper-clearfix .ui-dialog-buttonset button:last-child {
+    background-color: #ff4e4e; }
+
+#confirm {
+  font-size: 15px;
+  padding: 5px; }
+  #confirm span {
+    font-weight: bold;
+    text-transform: uppercase; }
+  #confirm p {
+    padding: 5px; }
+
 .top-nav {
   background-color: #a9425a;
   height: 51px;

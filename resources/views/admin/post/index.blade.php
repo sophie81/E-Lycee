@@ -23,7 +23,7 @@
         </tr>
         </thead>
         <div id="confirm">
-            <p>Confirmez vous la suppression de la resource <span></span> ?</p>
+            <p>Confirmez vous la suppression de "<span></span>" ?</p>
         </div>
         @forelse($posts as $post)
             <tr>
