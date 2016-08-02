@@ -18,16 +18,10 @@ Route::get('actualites', 'FrontController@actus');
 Route::get('actualite/{id}', 'FrontController@showActu');
 Route::get('lycee', 'FrontController@lycee');
 Route::get('contact', 'FrontController@contact');
+Route::post('contact_mail', 'FrontController@postContact');
 Route::get('mentions', 'FrontController@mentions');
 Route::resource('comment', 'CommentController');
-
-Route::get('search', function(){
-    $search = urlencode(e(Input::get('search-bar')));
-    $route = "search/$search";
-    return redirect($route);
-});
-
-Route::get('search/{search}', 'FrontController@search');
+Route::get('search', 'FrontController@search');
 
 
 Route::group(['middleware' => ['web']], function () {

@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Comment;
-use Illuminate\Http\Request;
-
-use App\Http\Requests;
+use Mail;
+use View;
+use Cache;
 use App\Post;
 use App\User;
-use Illuminate\Support\Facades\DB;
-use View;
+use App\Comment;
 use Carbon\Carbon;
-use Cache;
+use App\Http\Requests;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Requests\ContactRequest;
 
 
 class FrontController extends Controller
@@ -66,45 +67,44 @@ class FrontController extends Controller
         return view('front.contact', compact('title'));
     }
 
+    public function postContact(ContactRequest $request){
+        $mails = Mail::send('email.contact',
+            array(
+                'name' => $request->get('nom'),
+                'email' => $request->get('email'),
+                'bodyMessage' => $request->get('message')
+            ), function($message)
+        {
+            $message->to('dalouny.sn@gmail.com')->subject('Contact');
+        });
+
+        return redirect('contact')->with('message', 'Votre message a été envoyé, nous vous recontacterons dès que possible');
+    }
+
     public function mentions(){
         $title = 'Mentions légales';
 
         return view('front.mentions', compact('title'));
     }
 
-    public function search($search){
-        $search = urldecode($search);
+    public function search(Request $request){
+
+       $query = $request->input('search-bar');
         
         $posts = Post::select()
-        ->where('title', 'LIKE', '%'.$search.'%')
+        ->where('title', 'LIKE', '%'.$query.'%')
         ->orderBy('date', 'desc')
         ->get();
 
         if (count($posts) == 0) {
             return view('front.search')
             ->with('message', 'Aucun article ne correspond à votre recherche')
-            ->with('search', $search);
+            ->with('search', $query);
         } else {
-            return view('front.search')
+            return view('front.search', compact('articles', 'query'))
             ->with('posts', $posts)
-            ->with('search', $search);
+            ->with('search', $query);
         }
     }
-
-/*
-    public function showUser($id){
-        $title = 'Auteur';
-        $user = User::findorFail($id);
-
-        return view('front.showUser', compact('user', 'title'));
-    }
-
-    public function showCategory($id){
-        $category = Category::findOrFail($id);
-        $name = $category->title;
-        $title = "Categorie : {$name}";
-
-        return view('front.showCategory', compact('category', 'title'));
-    }*/
 
 }
