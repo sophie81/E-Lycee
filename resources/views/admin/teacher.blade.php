@@ -33,7 +33,7 @@
                     <a data-toggle="collapse" href="#collapse2"><h2 class="panel-title">Gestion des questions </h2></a>
                 </div>
                 <div id="collapse2" class="panel-collapse collapse in list">
-                     @forelse($questions->take(3) as $question)
+                    @forelse($questions->take(3) as $question)
                         <h3><button class="btn btn-valid {{$question->status=='unpublished'? 'red' : 'green'}}">
                         </button><a href="{{url('question',[$question->id, 'edit'])}}">{{$question->title}}</a></h3>
                     @empty

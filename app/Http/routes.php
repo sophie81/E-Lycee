@@ -27,6 +27,9 @@ Route::group(['middleware' => ['web']], function () {
     Route::group(['middleware' => ['auth']], function () {
         Route::get('teacher', 'AdminController@teacher');
         Route::get('student', 'AdminController@student');
+        Route::get('qcm', 'AdminController@qcm');
+        Route::get('qcm/{id}/edit', 'AdminController@qcmEdit');
+        Route::put('qcm/{id}/edit', 'AdminController@qcmUpdate');
         Route::resource('post', 'PostController');
         Route::resource('question', 'QuestionController');
         Route::get('question/{id}/choice', 'ChoiceController@edit');

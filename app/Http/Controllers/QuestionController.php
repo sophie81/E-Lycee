@@ -22,7 +22,7 @@ class QuestionController extends Controller
     public function index()
     {
         $title = 'Question';
-        $questions = Question::with('scores', 'choices')->paginate($this->paginate);
+        $questions = Question::with('score', 'choices')->paginate($this->paginate);
 
         return view('admin.question.index', compact('questions', 'title'));
     }

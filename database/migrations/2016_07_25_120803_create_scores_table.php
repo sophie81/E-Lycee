@@ -19,7 +19,7 @@ class CreateScoresTable extends Migration
             $table->unsignedInteger('question_id')->nullable();
             $table->foreign('question_id')->references('id')->on('questions');
             $table->enum('status_question', ['yes', 'no'])->default('no');
-            $table->smallInteger('note');
+            $table->smallInteger('note')->default(0);
             $table->timestamps();
         });
     }

@@ -8,7 +8,7 @@ class Question extends Model
 {
     protected $fillable = ['title', 'content', 'class_level', 'status'];
 
-    public function scores(){
+    public function score(){
         return $this->hasOne('App\Score');
     }
 
