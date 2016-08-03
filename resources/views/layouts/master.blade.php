@@ -7,6 +7,7 @@
     </title>
     <link rel="stylesheet" href="{{url('css/app.css')}}" media="all">
     <link href='https://fonts.googleapis.com/css?family=Marvel' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="{{url('fonts/font-awesome/css/font-awesome.min.css')}}">
 </head>
 <body>

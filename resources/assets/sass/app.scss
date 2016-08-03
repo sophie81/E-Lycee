@@ -14,11 +14,14 @@
   cursor: default;
 }
 
+a.active { border-bottom: 2px solid; }
+
 body {
   font-family: 'Marvel', sans-serif;
 }
 
 h1 {
+  font-family: 'Pacifico', cursive;
   display: inline;
   vertical-align: middle;
 }
@@ -219,15 +222,20 @@ ul.pagination li a {
 
 .top-nav {
   background-color: #a9425a;
-  height: 51px;
-  line-height: 51px;
+  height: 80px;
+  line-height: 80px;
+  padding: 0;
 
-  h1 {
-    color: #FFF;
-    font-size: 20px;
+  .site-title {
+    text-align: center;
+
+    h1 {
+      color: #FFF;
+      font-size: 20px;
+    }
   }
 
-  a {
+  .connect {
     color: #FFF;
     font-size: 12px;
     text-transform: uppercase;
@@ -242,36 +250,32 @@ ul.pagination li a {
     width: 30px;
   }
 
-  .fb-like {
-    width: 60px;
+  p { 
+    display: inline-block; 
+    color: #FFF;
+    font-size: 14px;
+    margin-right: 0;
+    text-transform: uppercase;
+
+    .username {
+      color: #75ce24;
+    }
   }
 
-  .right-nav {
+  .btn-deco {
+    font-size: 11px;
+  }
+
+  .connect {
+    @include transition(ease-in-out 0.4s);
+  }
+
+  .social {
     text-align: right;
 
-    p { 
-      display: inline-block; 
-      color: #FFF;
-      font-size: 14px;
-      margin-right: 0;
-      text-transform: uppercase;
-
-      .username {
-        color: #75ce24;
-      }
-    }
-
-    .btn-deco {
-      font-size: 11px;
-    }
-
-    .connect {
-      @include transition(ease-in-out 0.4s);
-    }
-
     .logos {
-      width: 30px;
-      height: 30px;
+      width: 15px;
+      height: 15px;
       display: inline-block;
       background-size: cover !important;
       vertical-align: middle;
@@ -292,11 +296,27 @@ ul.pagination li a {
         background:url(../images/logo-twitter-hover.png);
       }
     }
+
+    .fb-like {
+      width: 34px;
+      margin: 5px;
+    }
+  }
+
+  .form-inline form {
+    display: inline-block;
+
+    input[type="submit"] {
+      height: 30px;
+      line-height: 30px;
+      border: 0;
+      background-color: transparent;
+    }
   }
 }
 
 .bottom-nav {
-  background-color: #eee;
+  margin-top: 30px;
   height: 50px;
   line-height: 50px;
   text-align: center;
@@ -325,22 +345,15 @@ ul.pagination li a {
     height: 30px;
     display: inline-block;
     width: auto;
+    border: 0;
+    border-bottom: 1px solid #000;
+    border-radius: 0;
+    box-shadow: none;
   }
 
   .search-submit {
     border: 0;
     background-color: transparent;
-  }
-
-  form {
-    display: inline-block;
-
-    input[type="submit"] {
-      height: 30px;
-      line-height: 30px;
-      border: 0;
-      background-color: transparent;
-    }
   }
 }
 
@@ -839,9 +852,25 @@ thead tr th,
   }
 
   .top-nav {
-    a {
+    .site-title h1 {
+      font-size: 40px;
+    }
+
+    .connect {
       font-size: 15px;
       padding: 0 10px;
+    }
+
+    .social {
+      .logos {
+        width: 30px;
+        height: 30px;
+      }
+
+      .fb-like {
+        margin: 10px;
+        width: 60px;
+      }
     }
   }
 
@@ -850,9 +879,4 @@ thead tr th,
 
 @media screen and (min-width: 992px) {
 
-  .top-nav {
-    h1 {
-      font-size: 36px;
-    }
-  }
 }
