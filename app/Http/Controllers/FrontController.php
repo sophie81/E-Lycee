@@ -89,21 +89,21 @@ class FrontController extends Controller
 
     public function search(Request $request){
 
-       $query = $request->input('search-bar');
+       $search = $request->input('search-bar');
         
         $posts = Post::select()
-        ->where('title', 'LIKE', '%'.$query.'%')
+        ->where('title', 'LIKE', '%'.$search.'%')
         ->orderBy('date', 'desc')
         ->get();
 
         if (count($posts) == 0) {
             return view('front.search')
             ->with('message', 'Aucun article ne correspond à votre recherche')
-            ->with('search', $query);
+            ->with('search', $search);
         } else {
-            return view('front.search', compact('articles', 'query'))
+            return view('front.search', compact('articles', 'search'))
             ->with('posts', $posts)
-            ->with('search', $query);
+            ->with('search', $search);
         }
     }
 

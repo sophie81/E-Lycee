@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="col-xs-12">
-	<h2 class="title-search">Resultat pour la recherche: <span>{{$query}}</span></h2>
+	<h2 class="title-search">Resultat pour la recherche: <span>{{$search}}</span></h2>
 </div>
 <div class="col-md-10 col-md-offset-1">
 	@if(isset($message))
