@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Choice;
 use Illuminate\Http\Request;
-
+use App\Http\Requests\ChoiceRequest;
 use App\Http\Requests;
 use App\Question;
 
@@ -61,7 +61,7 @@ class ChoiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ChoiceRequest $request, $id)
     {
         $choices = Choice::where('question_id', '=', $id)->get();
         foreach($choices as $item){

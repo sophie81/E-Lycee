@@ -33,10 +33,16 @@
                     <a href="{{url('question',[$question->id, 'choice'])}}" class="btn btn-update mb10">{{$question->choices->count()}}</a>
                 </td>
                 <td>
+                    {{var_dump(isset($question->scores))}}
+                    @if(isset($question->scores))
+                        <button class="btn btn-valid {{$question->status=='unpublished'? 'red' : 'green'}}">
+                        </button>
+                    @else
                     <a href="{{url("changeStatusQuestion", $question->id)}}">
                         <button class="btn btn-valid {{$question->status=='unpublished'? 'red' : 'green'}}">
                         </button>
                     </a>
+                    @endif
                 </td>
                 <td>
                     <form class="destroy" method="POST" action="{{url('question', $question->id)}}">
