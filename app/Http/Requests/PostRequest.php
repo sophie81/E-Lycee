@@ -27,7 +27,7 @@ class PostRequest extends Request
         return [
             'title' => 'required|string',
             'content' => 'required|string',
-            'abstract' => 'required|string',
+            'abstract' => 'required|string|max:100',
             'status' => 'in:published,unpublished,draft',
             'date' => 'date',
             'user_id' => 'integer',

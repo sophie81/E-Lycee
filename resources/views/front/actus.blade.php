@@ -12,7 +12,7 @@
                 <a href="{{url('actualite',[$post->id])}}" class="link-post" style="background-image:url({{'images/fb-like.jpg'}});">
             @endif
             <div class="txt-description">
-                <p>{{$post->content}}</p>
+                <p>{{$post->abstract}}</p>
                 @if($post->date)
                     <p><b>Publié le :</b> {{$post->date->format('d/m/Y')}}</p>
                 @endif
