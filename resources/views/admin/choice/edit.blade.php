@@ -21,13 +21,17 @@
                     <p><span class="error">{{$errors->first('content')}}</span></p>
                 @endif
             </div>
-            <div class="form-check">
-                <label for="cbox1" class="form-check-label"><input class="form-check-input" {{$choice->status=='true'? 'checked' : ''}} type="radio" name="status_{{$choice->id}}" id="cbox1" value="true">Vrai</label>
+                @if(isset($question->score))
+                    <p>{{$choice->status=='true'? 'Vrai' : 'Faux'}}</p>
+                @else
+                    <div class="form-check">
+                        <label for="cbox1" class="form-check-label"><input class="form-check-input" {{$choice->status=='true'? 'checked' : ''}} type="radio" name="status_{{$choice->id}}" id="cbox1" value="true">Vrai</label>
 
-            </div>
-            <div class="form-check">
-                <label for="cbox2" class="form-check-label"><input class="form-check-input" {{$choice->status=='false'? 'checked' : ''}} type="radio" name="status_{{$choice->id}}" id="cbox2" value="false">Faux</label>
-            </div>
+                    </div>
+                    <div class="form-check">
+                        <label for="cbox2" class="form-check-label"><input class="form-check-input" {{$choice->status=='false'? 'checked' : ''}} type="radio" name="status_{{$choice->id}}" id="cbox2" value="false">Faux</label>
+                    </div>
+                @endif
             @empty
                 <p>pas de reponse</p>
             @endforelse

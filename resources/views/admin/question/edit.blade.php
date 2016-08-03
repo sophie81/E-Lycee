@@ -12,11 +12,15 @@
             {{csrf_field()}}
             <input type="hidden" name="_method" value="PATCH">
             <div class="form-group">
-                <label>Sélectionnez le niveau de la question :</label>
-                <select name="class_level" class="form-control">
-                    <option {{$question->class_level=='first_class' ? 'selected' : ''}} value="first_class">first_class</option>
-                    <option {{$question->class_level=='final_class' ? 'selected' : ''}} value="final_class">final_class</option>
-                </select>
+                @if(isset($question->score))
+                    <p>{{$question->class_level}}</p>
+                @else
+                    <label>Sélectionnez le niveau de la question :</label>
+                    <select name="class_level" class="form-control">
+                        <option {{$question->class_level=='first_class' ? 'selected' : ''}} value="first_class">first_class</option>
+                        <option {{$question->class_level=='final_class' ? 'selected' : ''}} value="final_class">final_class</option>
+                    </select>
+                @endif
             </div>
             <div class="form-group">
                 <label>Entrer un titre:</label>
