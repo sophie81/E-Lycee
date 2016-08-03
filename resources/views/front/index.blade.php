@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="col-md-9">
-        <h2 class="title">Bienvenue sur E-lycée</h2>
+        <h2 class="title">Les dernières actualités</h2>
         @forelse($posts as $post)
             <div class="post row">
                 <div class="col-sm-6 post-img">
