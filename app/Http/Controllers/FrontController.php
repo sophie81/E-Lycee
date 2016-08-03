@@ -20,7 +20,7 @@ class FrontController extends Controller
     private $paginate = 6;
 
     public function index(){
-        $title = 'Home';
+        $title = 'Accueil';
 
         $posts = Post::with('user', 'comments')
             ->orderBy('date', 'desc')

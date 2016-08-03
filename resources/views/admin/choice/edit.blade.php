@@ -9,7 +9,7 @@
     </nav>
     <div class="col-md-6 col-md-offset-3">
         <h3 class="title-question"><span>Question</span> : {{$question->content}}</h3>
-        <form method="POST" action="{{url('question', [$question->id, 'choice'])}}" class="form-create">
+        <form method="POST" action="{{url('question', [$question->id, 'choice'])}}" class="form-create form-choice">
             {{csrf_field()}}
             <input type="hidden" name="_method" value="PUT">
             @forelse($question->choices as $index => $choice)
