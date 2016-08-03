@@ -25,7 +25,7 @@
             <div class="mb20">
                 <input id="remember" type="radio" name="remember" value="remember"> Se rappeler de moi
             </div>
-            <div>
+            <div class="button">
                 <button type="submit" class="btn btn-valid">Connexion</button>
             </div>
         </form>

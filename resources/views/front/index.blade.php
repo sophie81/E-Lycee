@@ -3,7 +3,7 @@
 @section('title', $title)
 
 @section('content')
-    <div class="col-md-8">
+    <div class="col-md-9">
         <h2 class="title">Bienvenue sur E-lycée</h2>
         @forelse($posts as $post)
             <div class="post row">
@@ -29,7 +29,7 @@
                     <div class="link">
                         <a href="{{url('actualite',[$post->id])}}" class="read-more">
                             <span>
-                                <span>></span>
+                                <span>+</span>
                                 Lire la suite
                             </span>
                         </a>
@@ -40,18 +40,20 @@
             <p>Pas d'article </p>
         @endforelse
     </div>
-    <div class="col-md-4 home-sidebar">
-        <h3>A lire aussi</h3>
-        @forelse($other as $otherPost)
-            <div>
-                <h3 class="more-post"><a href="{{url('actualite',[$otherPost->id])}}">{{$otherPost->title}}</a></h3>
-                <p>{{$otherPost->abstract}}</p>
-                @if($otherPost->date)
-                    <p><b>Publié le :</b> {{$otherPost->date->format('d/m/Y')}}</p>
-                @endif
-            </div>
-        @empty
-            <p>Pas d'article </p>
-        @endforelse
+    <div class="col-md-3 home-sidebar">
+        <h3 class="sidebar-title">A lire aussi</h3>
+        <div class="content-read-more">
+            @forelse($other as $otherPost)
+                <div class="read-more">
+                    <h3 class="more-post"><a href="{{url('actualite',[$otherPost->id])}}">{{$otherPost->title}}</a></h3>
+                    <p>{{$otherPost->abstract}}</p>
+                    @if($otherPost->date)
+                        <p><b>Publié le :</b> {{$otherPost->date->format('d/m/Y')}}</p>
+                    @endif
+                </div>
+            @empty
+                <p>Pas d'article </p>
+            @endforelse
+        </div>
     </div>
 @endsection

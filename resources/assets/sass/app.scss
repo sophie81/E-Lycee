@@ -163,8 +163,8 @@ ul.pagination li a {
 .pagination > .active > span, 
 .pagination > .active > span:hover, 
 .pagination > .active > span:focus {
-    background-color: #a9425a;
-    border-color: #a9425a;
+    background-color: rgb(202, 145, 93);
+    border-color: rgb(202, 145, 93);
 }
 
 .pagination > li:first-child > a, 
@@ -317,7 +317,6 @@ ul.pagination li a {
 
 .bottom-nav {
   margin-top: 30px;
-  height: 50px;
   line-height: 50px;
   text-align: center;
 
@@ -372,6 +371,17 @@ ul.pagination li a {
   }
 }
 
+.right-nav {
+  padding: 0;
+
+  a {
+    font-size: 10px;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 0;
+  }
+}
+
 .post {
   margin: 50px 0;
 
@@ -385,7 +395,6 @@ ul.pagination li a {
   }
 
   .description {
-    background-color: #eee;
     height: auto;
 
     h3 {
@@ -394,7 +403,7 @@ ul.pagination li a {
       text-align: center;
 
       a {
-        color: #a9425a;
+        color: rgb(202, 145, 93);
       }
     }
 
@@ -406,7 +415,7 @@ ul.pagination li a {
       font-size: 13px; 
 
       b {
-        color: rgba(70, 201, 214, 0.59); 
+        color: rgb(202, 145, 93); 
         text-transform: uppercase;
       }
     }
@@ -433,7 +442,7 @@ ul.pagination li a {
       @include transition(all 0.2s);
 
       > span {
-        background-color: #eee;
+        background-color: #fff;
         border-radius: 30px;
         height: 28px;
         line-height: 27px;
@@ -467,13 +476,37 @@ ul.pagination li a {
 }
 
 .home-sidebar {
+  margin-bottom: 50px;
+
   b {
-    color: rgba(70, 201, 214, 0.59); 
+    color: #000; 
     text-transform: uppercase;
   }
 
-  .more-post a {
-    color: #a9425a; 
+  .sidebar-title {
+    font-size: 30px;
+    margin: 50px 0;
+  }
+
+  .more-post:first-child {
+    h3 { margin-top: 30px; }
+  }
+
+  .more-post {
+    a {
+      color: #ca915d; 
+    }
+
+    h3 {
+      margin-top: 35px;
+    }
+  }
+
+  .content-read-more {
+    background-color: #555;
+    color: #FFF;
+    padding: 5px 30px;
+    padding-bottom: 30px;
   }
 }
 
@@ -506,11 +539,15 @@ ul.pagination li a {
 
   .txtdescription {
     margin: 10px 0;
-
-    .content { font-size: 16px; }
+    
+    .content { 
+      font-size: 16px; 
+      text-align: justify;
+      margin: 40px 0;
+    }
 
     b { 
-      color: rgba(70, 201, 214, 0.59); 
+      color: rgb(202, 145, 93); 
       text-transform: uppercase;
     }
 
@@ -518,6 +555,15 @@ ul.pagination li a {
 
     .black{ color: #000; }
   }
+}
+
+.txt-description {
+  background-color: rgba(0, 0, 0, 0.35);
+  height: 100%;
+  border: 10px solid #a9425a;
+  color: #FFF;
+  text-align: center;
+  padding: 40px;
 }
 
 .comments {
@@ -569,7 +615,7 @@ ul.pagination li a {
 }
 
 .button button[type="submit"] {
-  background-color: rgba(70, 201, 214, 0.59);
+  background-color: rgb(202, 145, 93);
   border: 0;
   border-radius: 5px;
   padding: 5px 10px;
@@ -792,24 +838,6 @@ thead tr th,
     }
   }
 
-  .right-nav {
-    .connect:hover {
-      color: #000;
-      @include transition(ease-in-out 0.4s);
-    }
-
-    p {
-      font-size: 12px;
-      margin-right: 5px;
-    }
-  }
-
-  .home-sidebar {
-    h3 {
-      margin-top: 50px;
-    }
-  }
-
   .post {
     img{
       height: 260px;
@@ -834,18 +862,16 @@ thead tr th,
 
   .actu-post {
     .txt-description {
-      color: #000;
       height: 100%;
       opacity: 0;
       text-align: center;
-      border: 10px solid transparent;
       @include transition(all 0.4s);
     }
 
     .link-post:hover .txt-description {
       display: block;
       opacity: 1;
-      background-color: rgba(255,255,255, 0.6);
+      background-color: rgba(0,0,0, 0.6);
       border: 10px solid #a9425a;
       @include transition(all 0.4s);
     }
@@ -875,8 +901,20 @@ thead tr th,
   }
 
   .title-search { margin-bottom: 20px; }
+
+  .right-nav {
+    text-align: right;
+    padding: 0 15px;
+
+    a {
+      font-size: 12px;
+      padding: 0 10px;
+    }
+}
 }
 
 @media screen and (min-width: 992px) {
-
+  .home-sidebar {
+    margin-bottom: 0;
+  }
 }
