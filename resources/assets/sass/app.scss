@@ -387,11 +387,12 @@ ul.pagination li a {
 
   img {
     height: auto;
-    width: 100%;
+    max-width: 100%;
   }
 
   .post-img {
     padding: 0;
+    text-align: center;
   }
 
   .description {
