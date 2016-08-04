@@ -3,7 +3,7 @@
     @if(Session::has('message'))
         <p class="msg">{{Session::get('message')}}</p>
     @endif
-    <h1 class="h1-form">Entrez vos réponses !</h1>
+    <h2 class="title-h2">Entrer vos réponses</h2>
     <nav>
         @include('partials.teacherNav')
     </nav>

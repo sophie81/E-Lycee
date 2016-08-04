@@ -4,6 +4,7 @@
     @if(Session::has('message'))
         <p class="msg">{{Session::get('message')}}</p>
     @endif
+    <h2 class="title-h2">Articles</h2>
     <nav>
         @include('partials.teacherNav')
     </nav>

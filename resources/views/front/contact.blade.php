@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="col-xs-12 page-contact">
-        <h2>Nous contacter</h2>
+        <h2 class="title-h2">Nous contacter</h2>
         @if(Session::has('message'))
             <p class="msg">{{Session::get('message')}}</p>
         @endif

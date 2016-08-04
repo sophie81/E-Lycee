@@ -16,17 +16,23 @@ footer {
   left: 0;
 }
 
+.red, 
+.green {
+  padding: 8px;
+  @include transition(all 0.4s);
+}
+
 .red{
   background-color: #ff4e4e;
-  padding: 8px;
 }
 
 .green{
   background-color: #75ce24;
-  padding: 8px;
 }
 
 .dft_curs{ cursor: default; }
+
+a { @include transition(ease 0.5s); }
 
 a.active { border-bottom: 2px solid; }
 
@@ -38,7 +44,17 @@ h1 {
   vertical-align: middle;
 }
 
-ul { margin-bottom: 0; }
+.title-h2 {
+  font-family: 'Cookie', cursive;
+  font-size: 45px;
+  margin-top: 50px;
+  text-align: center;
+}
+
+ul { 
+  margin-bottom: 0; 
+  padding-left: 0;
+}
 
 li { list-style: none; }
 
@@ -63,6 +79,7 @@ table {
       text-transform: uppercase;
       font-size: 16px;
       color: #a9425a;
+      @include transition(all 0.4s);
     }
   }
 }
@@ -96,6 +113,14 @@ input[name="confirm"] {
 
 .form-create { margin-top: 50px; }
 
+.post_action {
+  #action {
+    width: 80px;
+    display: inline-block;
+  }
+  input[name="confirm"] { display: inline-block; }
+}
+
 .container-btn { 
   margin-bottom: 30px;
   text-align: center; 
@@ -113,6 +138,7 @@ input[name="confirm"] {
   color: #fff;
   padding: 5px 10px;
   border-radius: 5px;
+  @include transition(all 0.4s);
 }
 
 .btn-delete {
@@ -609,6 +635,7 @@ ul.pagination li a {
   padding: 5px 10px;
   text-transform: uppercase;
   color: #fff;
+  @include transition(ease 0.5s);
 }
 
 .form {
@@ -706,13 +733,14 @@ footer {
       border-bottom: 1px solid #ddd;
       padding-bottom: 10px;
       margin-top: 10px;
-      font-size: 20px;
+      font-size: 18px;
       text-align: center;
       position: relative;
 
       a {
         color: #a9425a;
         display: inline-block;
+        @include transition(all 0.5s);
       }
 
       button {
@@ -781,6 +809,52 @@ thead tr th,
 
 @media screen and (min-width: 768px) {
 
+  .button button[type=submit]:hover { 
+    background-color: #000; 
+    @include transition(ease 0.5s);
+  } 
+
+  .btn-validate:hover {
+    background-color: #ca915d;
+    @include transition(all 0.4s);
+  }
+
+  a:hover { 
+    color: #000; 
+    @include transition(all 0.5s);
+  } 
+
+  .status-comment.red:hover {
+    background-color: #75ce24;
+    @include transition(all 0.4s);
+  }
+
+  .status-comment.green:hover {
+    background-color: #ff4e4e;
+    @include transition(all 0.4s);
+  }
+
+  .top-nav {
+    .site-title h1 { font-size: 40px; }
+
+    .connect {
+      font-size: 15px;
+      padding: 0 10px;
+    }
+
+    .social {
+      .logos {
+        width: 30px;
+        height: 30px;
+      }
+
+      .fb-like {
+        margin: 10px;
+        width: 60px;
+      }
+    }
+  }
+
   .bottom-nav,
   .bottom-nav-admin {
     li {
@@ -820,6 +894,16 @@ thead tr th,
     }
   }
 
+  .right-nav {
+    text-align: right;
+    padding: 0 15px;
+
+    a {
+      font-size: 12px;
+      padding: 0 10px;
+    }
+  }
+
   .post {
     img{ height: 260px; } 
 
@@ -855,38 +939,17 @@ thead tr th,
     }
   }
 
-  .top-nav {
-    .site-title h1 { font-size: 40px; }
-
-    .connect {
-      font-size: 15px;
-      padding: 0 10px;
-    }
-
-    .social {
-      .logos {
-        width: 30px;
-        height: 30px;
-      }
-
-      .fb-like {
-        margin: 10px;
-        width: 60px;
-      }
-    }
-  }
-
   .title-search { margin-bottom: 20px; }
 
-  .right-nav {
-    text-align: right;
-    padding: 0 15px;
+  .list-post .list h3 a:hover {
+    color: #ca915d;
+    @include transition(all 0.4s);
+  }
 
-    a {
-      font-size: 12px;
-      padding: 0 10px;
-    }
-}
+  table tbody tr td.title-table a:hover {
+    color: #000;
+    @include transition(all 0.4s);
+  }
 }
 
 @media screen and (min-width: 992px) {

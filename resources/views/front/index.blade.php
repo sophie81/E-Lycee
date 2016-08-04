@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="col-md-9">
-        <h2 class="title">Les dernières actualités</h2>
+        <h2 class="title-h2">Les dernières actualités</h2>
         @forelse($posts as $post)
             <div class="post row">
                 <div class="col-sm-6 post-img">
@@ -41,7 +41,7 @@
         @endforelse
     </div>
     <div class="col-md-3 home-sidebar">
-        <h3 class="sidebar-title">A lire aussi</h3>
+        <h2 class="title-h2">A lire aussi</h2>
         <div class="content-read-more">
             @forelse($other as $otherPost)
                 <div class="read-more">

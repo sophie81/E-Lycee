@@ -8,7 +8,7 @@
         @include('partials.teacherNav')
     </nav>
     <div class="col-md-6 col-md-offset-3 content-form">
-        <h1 class="h1-form">Modification d'article</h1>
+        <h2 class="title-h2">Modification d'article</h1>
         <form method="POST" action="{{url('post', $post->id)}}" enctype="multipart/form-data" class="form-create">
             {{csrf_field()}}
             <input type="hidden" name="_method" value="PATCH">

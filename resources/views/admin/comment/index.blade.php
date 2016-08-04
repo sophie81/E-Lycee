@@ -4,10 +4,10 @@
     @if(Session::has('message'))
         <p class="msg">{{Session::get('message')}}</p>
     @endif
+    <h2 class="title-h2">Commentaires</h2>
     <nav>
         @include('partials.teacherNav')
     </nav>
-
     <table class="table table-comment">
         <thead>
         <tr>
@@ -17,9 +17,6 @@
             <th>Status</th>
         </tr>
         </thead>
-        <div id="confirm">
-            <p>Confirmez vous la suppression de la resource "<span></span>" ?</p>
-        </div>
         @forelse($comments as $comment)
             <tr>
                 <td>
@@ -33,7 +30,7 @@
                 </td>
                 <td class="td-status">
                     <a href="{{url("changeStatusComment", $comment->id)}}">
-                        <button class="btn btn-valid {{$comment->status=='unpublished'? 'red' : 'green'}}">
+                        <button class="btn status-comment {{$comment->status=='unpublished'? 'red' : 'green'}}">
                         </button>
                     </a>
                 </td>
@@ -43,5 +40,9 @@
             <p>aucun commentaire</p>
         @endforelse
     </table>
-    {!! $comments->links() !!}
+    <div class="row content-pagination">
+        <div class="col-xs-12">
+            {!! $comments->links() !!}
+        </div>
+    </div>
 @endsection

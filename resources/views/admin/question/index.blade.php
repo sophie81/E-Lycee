@@ -4,6 +4,7 @@
     @if(Session::has('message'))
         <p class="msg">{{Session::get('message')}}</p>
     @endif
+    <h2 class="title-h2">Questions</h2>
     <nav>
         @include('partials.teacherNav')
     </nav>
@@ -25,7 +26,7 @@
             <tr>
                 <th>Actions</th>
                 <th>Status</th>
-                <th>Titre</th>
+                <th class="th-title">Titre</th>
                 <th>Réponses</th>
             </tr>
             </thead>
@@ -44,7 +45,7 @@
                         <button class="btn btn-valid dft_curs {{$question->status=='unpublished'? 'red' : 'green'}}">
                         </button>
                     </td>
-                    <td>
+                    <td class="title-table">
                         <a href="{{url('question',[$question->id, 'edit'])}}" class="btn btn-update mb10">{{$question->title}}</a>
                     </td>
                     <td>
@@ -57,5 +58,9 @@
             @endforelse
         </table>
     </form>
-    {!! $questions->links() !!}
+    <div class="row content-pagination">
+        <div class="col-xs-12">
+            {!! $questions->links() !!}
+        </div>
+    </div>
 @endsection

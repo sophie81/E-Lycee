@@ -5,7 +5,7 @@
         @if(Session::has('message'))
             <p class="error-msg">{{Session::get('message')}}</p>
         @endif
-        <h2>Connectez-vous</h2>
+        <h2 class="title-h2">Connectez-vous</h2>
         <form method="POST" action="{{url('login')}}" class="login">
             {{ csrf_field() }}
             <div class="mb10">
