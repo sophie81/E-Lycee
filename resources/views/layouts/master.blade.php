@@ -11,22 +11,24 @@
     <link rel="stylesheet" href="{{url('fonts/font-awesome/css/font-awesome.min.css')}}">
 </head>
 <body>
-<header>
-    <nav>
-        @include('partials.nav')
-    </nav>
-</header>
-<div class="container">
-    <div class="row">
-        @yield('content')
+    <div class="page">
+        <header>
+            <nav>
+                @include('partials.nav')
+            </nav>
+        </header>
+        <div class="container">
+            <div class="row">
+                @yield('content')
+            </div>
+        </div>
+        <footer>
+            @section('footer')
+                <nav>
+                    @include('partials.footerNav')
+                </nav>
+                <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+        </footer>
     </div>
-</div>
-<footer>
-    @section('footer')
-        <nav>
-            @include('partials.footerNav')
-        </nav>
-</footer>
-<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
 </body>
 </html>

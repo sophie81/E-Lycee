@@ -12,25 +12,27 @@
 
 </head>
 <body>
-<header>
-    <nav>
-        @include('partials.adminNav')
-    </nav>
-</header>
-<div class="container">
-    <div class="row">
-        @yield('content')
+    <div class="page">
+        <header>
+            <nav>
+                @include('partials.adminNav')
+            </nav>
+        </header>
+        <div class="container">
+            <div class="row">
+                @yield('content')
+            </div>
+        </div>
+        <footer>
+            @section('footer')
+                <nav>
+                    @include('partials.footerNav')
+                </nav>
+        </footer>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <script src="{{url('js/app.min.js')}}"></script>
+        <script src="{{url('js/bootstrap.min.js')}}"></script>
     </div>
-</div>
-<footer>
-    @section('footer')
-        <nav>
-            @include('partials.footerNav')
-        </nav>
-</footer>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-<script src="{{url('js/app.min.js')}}"></script>
-<script src="{{url('js/bootstrap.min.js')}}"></script>
 </body>
 </html>
