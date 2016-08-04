@@ -98,25 +98,48 @@ class QuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($questions)
     {
-        $question = Question::findOrFail($id);
-        $title = $question->title;
-
-        $question->delete();
-
-        return redirect('question')->with(['message'=>sprintf('La question %s a été supprimé avec succès.', $title)]);
+        foreach($questions->input('ck') as $id) {
+            $question = Question::findOrFail($id);
+            $question->delete();
+        }
     }
 
-    public function changeStatusQuestion($id)
+    public function publish($questions)
     {
-        $question = Question::findOrFail($id);
-        $title = $question->title;
+        foreach($questions->input('ck') as $id) {
+            $question = Question::findOrFail($id);
+            $question->status = 'published';
+            $question->save();
+        }
+    }
 
-        $status = $question->status=='published'? 'unpublished' : 'published';
-        $question->status = $status;
-        $question->save();
+    public function unpublish($questions)
+    {
+        foreach($questions->input('ck') as $id) {
+            $question = Question::findOrFail($id);
+            $question->status = 'unpublished';
+            $question->save();
+        }
+    }
 
-        return redirect('question')->with(['message'=>sprintf('Le status de la question %s a été modifié.', $title)]);
+    public function action(Request $request){
+        $action = $request->input('action');
+        switch($action){
+            case "publish":
+                $this->publish($request);
+                $title = "publié";
+                break;
+            case "unpublish":
+                $this->unpublish($request);
+                $title = "dépublié";
+                break;
+            case "delete":
+                $this->destroy($request);
+                $title = "supprimé";
+                break;
+        }
+        return redirect('question')->with(['message'=>sprintf('Les questions ont été %s', $title)]);
     }
 }

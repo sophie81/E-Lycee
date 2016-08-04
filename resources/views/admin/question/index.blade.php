@@ -12,13 +12,21 @@
             <li><a href="{{url('question','create')}}">Créer une question</a></li>
         </ul>
     </nav>
+    <form action="{{url('question', 'action')}}" method="POST">
+        {{csrf_field()}}
+        <select name="action" id="action">
+            <option value="publish">Publier</option>
+            <option value="unpublish">Dépublier</option>
+            <option value="delete">Supprimer</option>
+        </select>
+        <input type="submit" value="Valider" class="btn-validate">
     <table class="table table-question">
         <thead>
         <tr>
+            <th>Actions</th>
+            <th>Status</th>
             <th>Titre</th>
             <th>Réponses</th>
-            <th>Status</th>
-            <th>Action (suppression)</th>
         </tr>
         </thead>
         <div id="confirm">
@@ -27,31 +35,20 @@
         @forelse($questions as $question)
             <tr>
                 <td>
+                    @if($question->score)
+                    @else
+                    <input class="form-check-input" type="checkbox" name="ck[{{$question->id}}]" id="cbox1" value="{{$question->id}}">
+                    @endif
+                </td>
+                <td>
+                    <button class="btn btn-valid dft_curs {{$question->status=='unpublished'? 'red' : 'green'}}">
+                    </button>
+                </td>
+                <td>
                     <a href="{{url('question',[$question->id, 'edit'])}}" class="btn btn-update mb10">{{$question->title}}</a>
                 </td>
                 <td>
                     <a href="{{url('question',[$question->id, 'choice'])}}" class="btn btn-update mb10">{{$question->choices->count()}}</a>
-                </td>
-                <td>
-                    @if(isset($question->score))
-                        <button class="btn btn-valid dft_curs {{$question->status=='unpublished'? 'red' : 'green'}}">
-                        </button>
-                    @else
-                    <a href="{{url("changeStatusQuestion", $question->id)}}">
-                        <button class="btn btn-valid {{$question->status=='unpublished'? 'red' : 'green'}}">
-                        </button>
-                    </a>
-                    @endif
-                </td>
-                <td>
-                    @if(!isset($question->score))
-                    <form class="destroy" method="POST" action="{{url('question', $question->id)}}">
-                        {{ method_field('DELETE') }}
-                        {{ csrf_field() }}
-                        <input type="hidden" name="title_h" value="{{$question->title}}">
-                        <input class="btn btn-closed" name="delete" type="submit" value="Supprimer">
-                    @endif
-                    </form>
                 </td>
 
             </tr>
@@ -59,5 +56,6 @@
             <p>aucune question</p>
         @endforelse
     </table>
+    </form>
     {!! $questions->links() !!}
 @endsection

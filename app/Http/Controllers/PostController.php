@@ -51,12 +51,6 @@ class PostController extends Controller
     {
         Post::create($request->all());
 
-        /*$im = $request->file('picture');
-
-        // refactoring voir plus bas la méthode private upload
-        if (!empty($im))
-            $this->upload($im, $request->input('name'), $post->id);*/
-
         return redirect('post')->with('message', 'Article crée avec un succès');
     }
 
@@ -106,25 +100,48 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($posts)
     {
-        $post = Post::findOrFail($id);
-        $title = $post->title;
-
-        $post->delete();
-
-        return redirect('post')->with(['message'=>sprintf('L\'article %s a été supprimé avec succès.', $title)]);
+        foreach($posts->input('ck') as $id) {
+            $post = Post::findOrFail($id);
+            $post->delete();
+        }
     }
 
-    public function changeStatus($id)
+    public function publish($posts)
     {
-        $post = Post::findOrFail($id);
-        $title = $post->title;
+        foreach($posts->input('ck') as $id) {
+            $post = Post::findOrFail($id);
+            $post->status = 'published';
+            $post->save();
+        }
+    }
 
-        $status = $post->status=='published'? 'unpublished' : 'published';
-        $post->status = $status;
-        $post->save();
+    public function unpublish($posts)
+    {
+        foreach($posts->input('ck') as $id) {
+            $post = Post::findOrFail($id);
+            $post->status = 'unpublished';
+            $post->save();
+        }
+    }
 
-        return redirect('post')->with(['message'=>'Le status a été modifié.']);
+    public function action(Request $request){
+        $action = $request->input('action');
+        switch($action){
+            case "publish":
+                $this->publish($request);
+                $title = "publié";
+                break;
+            case "unpublish":
+                $this->unpublish($request);
+                $title = "dépublié";
+                break;
+            case "delete":
+                $this->destroy($request);
+                $title = "supprimé";
+                break;
+        }
+        return redirect('question')->with(['message'=>sprintf('Les articles ont été %s', $title)]);
     }
 }

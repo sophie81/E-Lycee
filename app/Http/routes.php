@@ -38,8 +38,8 @@ Route::group(['middleware' => ['web']], function () {
         Route::resource('question', 'QuestionController');
         Route::get('question/{id}/choice', 'ChoiceController@edit');
         Route::put('question/{id}/choice', 'ChoiceController@update');
+        Route::post('question/action', 'QuestionController@action');
         Route::get('changeStatus/{id}', 'PostController@changeStatus');
-        Route::get('changeStatusQuestion/{id}', 'QuestionController@changeStatusQuestion');
         Route::get('changeStatusComment/{id}', 'CommentController@changeStatusComment');
     });
 });

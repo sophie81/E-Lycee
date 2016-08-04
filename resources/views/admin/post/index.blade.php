@@ -12,58 +12,61 @@
             <li><a href="{{url('post','create')}}">Créer un article</a></li>
         </ul>
     </nav>
-    <table class="table table-post">
-        <thead>
-        <tr>
-            <th class="th-title">Titre</th>
-            <th>Auteur</th>
-            <th>Commentaire</th>
-            <th>Status</th>
-            <th>Action (suppression)</th>
-        </tr>
-        </thead>
-        <div id="confirm">
-            <p>Confirmez vous la suppression de "<span></span>" ?</p>
-        </div>
-        @forelse($posts as $post)
+    <form action="{{url('question', 'action')}}" method="POST" id="post_action">
+        {{csrf_field()}}
+        <select name="action" id="action">
+            <option value="publish">Publier</option>
+            <option value="unpublish">Dépublier</option>
+            <option value="delete">Supprimer</option>
+        </select>
+        <input type="submit" value="Valider" class="btn-validate">
+        <table class="table table-post">
+            <thead>
             <tr>
-                <td class="title-table">
-                    <a href="{{url('post',[$post->id, 'edit'])}}">{{$post->title}}</a>
-                </td>
-                <td>
-                    @if($post->user)
-                        {{$post->user->username}}
-                    @else
-                        pas d'auteur
-                    @endif
-                </td>
-                <td>
-                    @if($post->comments)
-                        <p>{{$post->comments->count()}}</p>
-                    @else
-                        0
-                    @endif
-                </td>
-                <td>
-                    <a href="{{url("changeStatus", $post->id)}}">
-                        <button class="btn btn-valid {{$post->status=='unpublished'? 'red' : 'green'}}">
-                        </button>
-                    </a>
-                </td>
-                <td>
-                    <form class="destroy" method="POST" action="{{url('post', $post->id)}}">
-                        {{ method_field('DELETE') }}
-                        {{ csrf_field() }}
-                        <input type="hidden" name="title_h" value="{{$post->title}}">
-                        <input class="btn btn-closed" name="delete" type="submit" value="Supprimer">
-                    </form>
-                </td>
-
+                <th>Actions</th>
+                <th>Status</th>
+                <th class="th-title">Titre</th>
+                <th>Auteur</th>
+                <th>Commentaire</th>
             </tr>
-        @empty
-            <p>aucun post</p>
-        @endforelse
-    </table>
+            </thead>
+            <div id="confirm">
+                <p>Confirmez vous la suppression de "<span></span>" ?</p>
+            </div>
+            @forelse($posts as $post)
+                <tr>
+                    <td>
+                        <input class="form-check-input" type="checkbox" name="ck[{{$post->id}}]" id="cbox1" value="{{$post->id}}">
+                    </td>
+                    <td>
+                        <a href="{{url("changeStatus", $post->id)}}">
+                            <button class="btn btn-valid dft_curs {{$post->status=='unpublished'? 'red' : 'green'}}">
+                            </button>
+                        </a>
+                    </td>
+                    <td class="title-table">
+                        <a href="{{url('post',[$post->id, 'edit'])}}">{{$post->title}}</a>
+                    </td>
+                    <td>
+                        @if($post->user)
+                            {{$post->user->username}}
+                        @else
+                            pas d'auteur
+                        @endif
+                    </td>
+                    <td>
+                        @if($post->comments)
+                            <p>{{$post->comments->count()}}</p>
+                        @else
+                            0
+                        @endif
+                    </td>
+                </tr>
+            @empty
+                <p>aucun post</p>
+            @endforelse
+        </table>
+    </form>
     <div class="row content-pagination">
         <div class="col-xs-12">
             {!! $posts->links() !!}
