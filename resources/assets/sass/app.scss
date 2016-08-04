@@ -43,7 +43,7 @@ ul { margin-bottom: 0; }
 li { list-style: none; }
 
 table { 
-  margin-top: 50px; 
+  margin-top: 30px; 
   border-bottom: 2px solid #ddd;
   text-align: center;
 }
@@ -66,6 +66,17 @@ table {
     }
   }
 }
+
+button[disabled], 
+html input[disabled] {
+  cursor: default;
+  background-color: #ccc;
+}
+
+input[name="confirm"] {
+  height: 34px;
+}
+
 .form-group {
   margin: 30px 0;
 
@@ -341,7 +352,7 @@ ul.pagination li a {
 }
 
 .bottom-nav-admin {
-  padding-top: 10px;
+  margin-top: 50px;
   text-align: center;
 
   li {
@@ -365,6 +376,8 @@ ul.pagination li a {
     padding: 0;
   }
 }
+
+.second-nav-admin { margin-top: 0; }
 
 .post {
   margin: 50px 0;
@@ -727,6 +740,8 @@ footer {
 
   span { text-transform: uppercase; }
 }
+
+.post_action { margin-top: 50px; }
 
 .table-question tbody tr td{
   text-align: left;

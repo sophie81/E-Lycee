@@ -8,18 +8,18 @@
         @include('partials.teacherNav')
     </nav>
     <nav>
-        <ul class="bottom-nav-admin">
+        <ul class="bottom-nav-admin second-nav-admin">
             <li><a href="{{url('post','create')}}">Créer un article</a></li>
         </ul>
     </nav>
-    <form action="{{url('post', 'action')}}" method="POST" id="post_action">
+    <form action="{{url('post', 'action')}}" method="POST" class="form-inline post_action">
         {{csrf_field()}}
-        <select name="action" id="action">
+        <select name="action" id="action" class="form-control">
             <option value="publish">Publier</option>
             <option value="unpublish">Dépublier</option>
             <option value="delete">Supprimer</option>
         </select>
-        <input type="submit" value="Valider" class="btn-validate">
+        <input disabled type="submit" value="Valider" class="btn-validate" name="confirm">
         <table class="table table-post">
             <thead>
             <tr>
@@ -31,7 +31,7 @@
             </tr>
             </thead>
             <div id="confirm">
-                <p>Confirmez vous la suppression de "<span></span>" ?</p>
+                <p>Confirmez vous la suppression ?</p>
             </div>
             @forelse($posts as $post)
                 <tr>
