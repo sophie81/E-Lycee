@@ -142,6 +142,6 @@ class PostController extends Controller
                 $title = "supprimé";
                 break;
         }
-        return redirect('question')->with(['message'=>sprintf('Les articles ont été %s', $title)]);
+        return redirect('post')->with(['message'=>sprintf('Les articles ont été %s', $title)]);
     }
 }

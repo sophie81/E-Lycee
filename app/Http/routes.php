@@ -39,6 +39,7 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('question/{id}/choice', 'ChoiceController@edit');
         Route::put('question/{id}/choice', 'ChoiceController@update');
         Route::post('question/action', 'QuestionController@action');
+        Route::post('post/action', 'PostController@action');
         Route::get('changeStatus/{id}', 'PostController@changeStatus');
         Route::get('changeStatusComment/{id}', 'CommentController@changeStatusComment');
     });

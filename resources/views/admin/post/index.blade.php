@@ -12,7 +12,7 @@
             <li><a href="{{url('post','create')}}">Créer un article</a></li>
         </ul>
     </nav>
-    <form action="{{url('question', 'action')}}" method="POST" id="post_action">
+    <form action="{{url('post', 'action')}}" method="POST" id="post_action">
         {{csrf_field()}}
         <select name="action" id="action">
             <option value="publish">Publier</option>
