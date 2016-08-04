@@ -768,6 +768,17 @@ thead tr th,
   span { text-transform: uppercase; }
 }
 
+.ui-dialog-titlebar.ui-corner-all.ui-widget-header.ui-helper-clearfix.ui-draggable-handle {
+  text-align: right;
+  .ui-dialog-titlebar-close {
+    border: 0;
+    background-color: transparent;
+    &:before {
+      content: "x";
+    }
+  }
+}
+
 @media screen and (min-width: 768px) {
 
   .bottom-nav,

@@ -27,7 +27,7 @@
                 <nav>
                     @include('partials.footerNav')
                 </nav>
-                <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+                <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
         </footer>
     </div>
 </body>
