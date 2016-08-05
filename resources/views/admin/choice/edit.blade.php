@@ -17,9 +17,6 @@
             <div class="title form-group">
                 <label>Réponse {{$index + 1}} : </label>
                 <textarea name="content_{{$choice->id}}" class="form-control">{{$choice->content}}</textarea>
-                @if($errors->has('content'))
-                    <p><span class="error">{{$errors->first('content')}}</span></p>
-                @endif
             </div>
                 @if(isset($question->score))
                     <p>{{$choice->status=='true'? 'Vrai' : 'Faux'}}</p>
