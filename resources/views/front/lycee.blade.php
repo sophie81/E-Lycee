@@ -4,7 +4,7 @@
 
 @section('content')
 	<div class="col-xs-12 lycee">
-		<h2>Ecole Multimedia</h2>
+		<h2 class="title-h2">Ecole Multimedia</h2>
 		<img src="{{url('images/em.jpg')}}" alt="Ecole multimedia">
 		<div class="descriptif">
 		    <h3>L'apprenant, au centre de nos préoccupations </h3>

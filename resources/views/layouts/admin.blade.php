@@ -6,8 +6,8 @@
         @yield('title', 'E-Lycée Administration')
     </title>
     <link rel="stylesheet" href="{{url('css/app.css')}}" media="all">
-    <link href='https://fonts.googleapis.com/css?family=Marvel' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 

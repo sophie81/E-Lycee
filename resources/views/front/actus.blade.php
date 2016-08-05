@@ -3,6 +3,7 @@
 @section('title', $title)
 
 @section('content')
+    <h2 class="title-h2">Retrouver les actus à propos des maths!</h2>
     @forelse($posts as $post)
         <div class="col-md-4 col-sm-6 col-xs-12 actu-post">
             <h3><a href="{{url('actualite',[$post->id])}}">{{$post->title}}</a></h3>
