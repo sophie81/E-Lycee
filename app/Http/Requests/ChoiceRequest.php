@@ -25,8 +25,7 @@ class ChoiceRequest extends Request
     {
 
         return [
-            'content' => 'required|string',
-            'status' => 'required|in:true,false'
+            
         ];
     }
 }

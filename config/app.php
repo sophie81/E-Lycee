@@ -156,8 +156,6 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-        'nickurt\Akismet\ServiceProvider',
-
     ],
 
     /*
@@ -172,7 +170,6 @@ return [
     */
 
     'aliases' => [
-        'Akismet' => 'nickurt\Akismet\Facade',
         'App' => Illuminate\Support\Facades\App::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
         'Auth' => Illuminate\Support\Facades\Auth::class,

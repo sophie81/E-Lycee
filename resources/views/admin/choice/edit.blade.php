@@ -9,14 +9,14 @@
     </nav>
     <div class="col-md-6 col-md-offset-3">
         <h3 class="title-question"><span>Question</span> : {{$question->content}}</h3>
-        <form method="POST" action="{{url('question', [$question->id, 'choice'])}}" class="form-create form-choice">
+        <form method="POST" action="{{url('question', [$question->id, 'choice'])}}" class="form-choice form-select-choice">
             {{csrf_field()}}
             <input type="hidden" name="_method" value="PUT">
             @forelse($question->choices as $index => $choice)
                 <input type="hidden" name="choice_id_{{$choice->id}}" value="{{$choice->id}}">
             <div class="title form-group">
                 <label>Réponse {{$index + 1}} : </label>
-                <textarea name="content_{{$choice->id}}" class="form-control">{{$choice->content}}</textarea>
+                <textarea name="content_{{$choice->id}}" class="form-control content-class">{{$choice->content}}</textarea>
                 @if($errors->has('content'))
                     <p><span class="error">{{$errors->first('content')}}</span></p>
                 @endif

@@ -11,7 +11,7 @@
         <div class="panel-group">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                        <a data-toggle="collapse" href="#collapse1"><h2 class="panel-title">Gestion des articles </h2></a>
+                        <a data-toggle="collapse" href="#collapse1"><h2 class="panel-title">Statistiques</h2></a>
                 </div>
                 <div id="collapse1" class="panel-collapse collapse in list">
                     @if($questions->count() > 0)
