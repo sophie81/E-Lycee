@@ -34,6 +34,7 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('qcm', 'AdminController@qcm');
         Route::get('qcm/{id}/edit', 'AdminController@qcmEdit');
         Route::put('qcm/{id}/edit', 'AdminController@qcmUpdate');
+        Route::get('qcm/{id}/reponse', 'AdminController@qcmRep');
         Route::resource('post', 'PostController');
         Route::resource('question', 'QuestionController');
         Route::get('question/{id}/choice', 'ChoiceController@edit');

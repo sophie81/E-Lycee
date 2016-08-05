@@ -120,12 +120,16 @@ class AdminController extends Controller
         }
         $score_old = Score::where('user_id', '=', Auth::user()->id)->where('question_id', '=', $id)->get();
         foreach($score_old as $item) {
-            var_dump('la');
             $item->status_question = 'yes';
             $item->note = $score;
             $item->save();
         }
 
-        return redirect('qcm')->with(['message'=>sprintf('Vous avez obtenu %s point(s)', $score)]);
+        return redirect()->action('AdminController@qcmRep', $id)->with(['message'=>sprintf('Vous avez obtenu %s point(s)', $score)]);
+    }
+
+    public function qcmRep($id){
+        $question = Question::findOrFail($id);
+        return view('admin.qcmRep', compact('question'));
     }
 }
