@@ -14,9 +14,6 @@
             <th>Questions</th>
         </tr>
         </thead>
-        <div id="confirm">
-            <p>Confirmez vous la suppression ?</p>
-        </div>
         @forelse($questions as $question)
         <tr>
             <td>
@@ -24,7 +21,7 @@
                 @if($scores_user->where("question_id", $question->id)->first()->status_question=='no')
                     <a href="{{url('qcm', [$question->id, 'edit'])}}" class="student-question">{{$question->title}}</a>
                 @else
-                    <p>{{$question->title}}</p>
+                    <span>{{$question->title}}</span>
                 @endif
             </td>
         </tr>
