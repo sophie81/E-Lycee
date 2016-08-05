@@ -40,10 +40,8 @@
                         <input class="form-check-input" type="checkbox" name="ck[{{$post->id}}]" id="cbox1" value="{{$post->id}}">
                     </td>
                     <td>
-                        <a href="{{url("changeStatus", $post->id)}}">
                             <button class="btn btn-valid dft_curs {{$post->status=='unpublished'? 'red' : 'green'}}">
                             </button>
-                        </a>
                     </td>
                     <td class="title-table">
                         <a href="{{url('post',[$post->id, 'edit'])}}">{{$post->title}}</a>

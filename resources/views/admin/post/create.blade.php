@@ -32,10 +32,7 @@
                     <p><span class="error">{{$errors->first('content')}}</span></p>
                 @endif
             </div>
-            <div class="form-group date">
-                <label>Entrer la date:</label>
-                <input type="date" name="date" class="form-control"></p>
-            </div>
+            <input type="hidden" name="date" value="{{date('Y-m-d H:i:s')}}">
             <div class="form-group photo">
                 <label>Entrer l'url de votre image:</label><br>
                 <input type="text" name="url_thumbnail" class="form-control">
