@@ -12,7 +12,7 @@
         <thead>
         <tr>
             <th>Pseudonyme</th>
-            <th>Contenu</th>
+            <th>Commentaire</th>
             <th>Article</th>
             <th>Status</th>
         </tr>
