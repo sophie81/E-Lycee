@@ -289,7 +289,7 @@ ul.pagination li a {
   p { 
     display: inline-block; 
     color: #FFF;
-    font-size: 14px;
+    font-size: 10px;
     margin-right: 0;
     text-transform: uppercase;
 
@@ -385,7 +385,7 @@ ul.pagination li a {
     display: inline-block;
     a {
       color: #000;
-      font-size: 20px;
+      font-size: 15px;
       text-transform: uppercase;
       margin-right: 10px;
     }
@@ -396,9 +396,9 @@ ul.pagination li a {
   padding: 0;
 
   a {
-    font-size: 10px;
+    font-size: 8px;
     color: #fff;
-    text-transform: uppercase;
+    text-transform: none;
     padding: 0;
   }
 }
@@ -737,13 +737,6 @@ footer {
       text-align: center;
       position: relative;
 
-      a {
-        color: #a9425a;
-        display: inline-block;
-        padding-left: 25px;
-        @include transition(all 0.5s);
-      }
-
       button {
         position: absolute;
         left: 0;
@@ -752,8 +745,21 @@ footer {
       }
     }
 
+    .score {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
     .see-more { margin-bottom: 10px; }
   }
+}
+
+.list-post .list h3 a,
+.student-question {
+  color: #a9425a;
+  display: inline-block;
+  padding-left: 25px;
+  @include transition(all 0.5s);
 }
 
 .content-form { text-align: center; }
@@ -806,6 +812,10 @@ thead tr th,
       content: "x";
     }
   }
+}
+
+.form-qcm .title {
+  text-align: justify;
 }
 
 @media screen and (min-width: 768px) {
@@ -900,8 +910,9 @@ thead tr th,
     padding: 0 15px;
 
     a {
-      font-size: 12px;
+      font-size: 11px;
       padding: 0 10px;
+      text-transform: none;
     }
   }
 

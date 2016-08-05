@@ -5,7 +5,7 @@
 			<li class="col-xs-4 site-title"><h1>E-Lycée</h1></li>
 		    <li class="col-xs-4 right-nav">
 		    	<a href="{{url('/')}}">Retour au site</a>	
-		    	<a href="{{url('logout')}}" class="btn-deco">Se déconnecter</a>
+		    	<a href="{{url('logout')}}" class="btn-deco">Déconnexion</a>
 		    </li>
 		</ul>
 	</div>

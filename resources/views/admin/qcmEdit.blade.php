@@ -7,8 +7,8 @@
         @include('partials.studentNav')
     </nav>
     <div class="col-md-6 col-md-offset-3">
-        <h3 class="title-question"><span>Question</span> : {{$question->content}}</h3>
-        <form method="POST" action="{{url('qcm', [$question->id, 'edit'])}}" class="form-create">
+        <h3 class="title-question"><span>Question</span> : <b>{{$question->content}}</b></h3>
+        <form method="POST" action="{{url('qcm', [$question->id, 'edit'])}}" class="form-qcm">
             {{csrf_field()}}
             <input type="hidden" name="_method" value="PUT">
             @forelse($question->choices as $index => $choice)
