@@ -2,6 +2,9 @@
 
 @section('title', $title)
 @section('content')
+    @if(Session::has('message'))
+        <div class="msg">{{Session::get('message')}}</div>
+    @endif
     @if(!empty($post))
         <div class="col-xs-12 single-post">
             <h2>{{$post->title}}</h2>
