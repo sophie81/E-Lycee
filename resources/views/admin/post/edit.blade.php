@@ -42,9 +42,6 @@
                 <label>Date :</label>
                 <input type="date" name="date" value="{{$post->date->format('Y-m-d')}}" class="form-control">
             </div>
-            <div class="form-group">
-                <p><label for="status">Publier l'article:</label> <input {{$post->status=='published'? 'checked' : ''}} id="status" type="checkbox" name="status" value="published"></p>
-            </div>
             <div class="container-btn">
                 <br><input type="submit" value="Mettre à jour" class="btn-validate">
                 <a href="{{url("post")}}" class="btn-delete">Annuler</a>

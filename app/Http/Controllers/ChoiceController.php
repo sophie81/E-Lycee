@@ -61,7 +61,7 @@ class ChoiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ChoiceRequest $request, $id)
+    public function update(Request $request, $id)
     {
         $choices = Choice::where('question_id', '=', $id)->get();
         foreach($choices as $item){
