@@ -15,7 +15,7 @@
                 <div id="collapse1" class="panel-collapse collapse in list">
                      @forelse($posts as $post)
                      <div>
-                        <h3><button class="btn btn-valid {{$post->status=='unpublished'? 'red' : 'green'}}">
+                        <h3><button class="btn btn-valid dft_curs {{$post->status=='unpublished'? 'red' : 'green'}}">
                         </button><a href="{{url('post',[$post->id, 'edit'])}}">{{$post->title}}</a></h3>
                     </div>
                     @empty
@@ -34,7 +34,7 @@
                 </div>
                 <div id="collapse2" class="panel-collapse collapse in list">
                     @forelse($questions->take(3) as $question)
-                        <h3><button class="btn btn-valid {{$question->status=='unpublished'? 'red' : 'green'}}">
+                        <h3><button class="btn btn-valid dft_curs {{$question->status=='unpublished'? 'red' : 'green'}}">
                         </button><a href="{{url('question',[$question->id, 'edit'])}}">{{$question->title}}</a></h3>
                     @empty
                         <p>Pas de question </p>
