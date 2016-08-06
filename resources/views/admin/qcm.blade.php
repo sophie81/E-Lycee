@@ -17,7 +17,7 @@
         @forelse($questions as $question)
         <tr>
             <td>
-                <button class="btn btn-valid {{$scores_user->where("question_id", $question->id)->first()->status_question=='no'? 'red' : 'green'}}"></button>
+                <div class="{{$scores_user->where("question_id", $question->id)->first()->status_question=='no'? '' : 'fait'}}"></div>
                 @if($scores_user->where("question_id", $question->id)->first()->status_question=='no')
                     <a href="{{url('qcm', [$question->id, 'edit'])}}" class="student-question">{{$question->title}}</a>
                 @else
