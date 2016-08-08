@@ -11,12 +11,12 @@
         <form method="POST" action="{{url('question')}}" class="form-create">
             {{csrf_field()}}
             <div class="form-inline form-group">
-                <label>Sélectionnez le niveau de la question :</label>
+                <label>Sélectionnez la classe :</label>
                 <select name="class_level" class="form-control level">
-                    <option value="first_class">first_class</option>
-                    <option value="final_class">final_class</option>
+                    <option value="first_class">Première S</option>
+                    <option value="final_class">Terminale S</option>
                 </select>
-                <label>Nombre de choix :</label>
+                <label>Nombre de réponses :</label>
                 <select name="nb_choice" class="form-control">
                     <option value="2">2</option>
                     <option value="3">3</option>
