@@ -13,12 +13,12 @@
             <input type="hidden" name="_method" value="PATCH">
             <div class="form-group">
                 @if(isset($question->score))
-                    <p>{{$question->class_level}}</p>
+                    <p><label>Classe :</label> {{$question->class_level=='first_class' ? 'Première S' : 'Terminale S'}}</p>
                 @else
-                    <label>Sélectionnez le niveau de la question :</label>
+                    <label>Sélectionnez la classe :</label>
                     <select name="class_level" class="form-control">
-                        <option {{$question->class_level=='first_class' ? 'selected' : ''}} value="first_class">first_class</option>
-                        <option {{$question->class_level=='final_class' ? 'selected' : ''}} value="final_class">final_class</option>
+                        <option {{$question->class_level=='first_class' ? 'selected' : ''}} value="first_class">Première S</option>
+                        <option {{$question->class_level=='final_class' ? 'selected' : ''}} value="final_class">Terminale S</option>
                     </select>
                 @endif
             </div>
